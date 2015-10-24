@@ -106,4 +106,6 @@ namespace autogreatsite_mvc45
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
+
+       
 }

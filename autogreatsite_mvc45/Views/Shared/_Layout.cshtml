@@ -36,12 +36,16 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li>@Html.ActionLink("Главная", "Index","Home")</li>
-                        <li>@Html.ActionLink("Каталог", "Sell", "Home")</li>
+                        <li>@Html.ActionLink("Каталог", "Index", "Cars")</li>
                         <li>@Html.ActionLink("Кредит", "Credit", "Home")</li>
                         <li>@Html.ActionLink("Trade-in", "TradeIn", "Home")</li>
                         <li>@Html.ActionLink("Выкуп", "Buy", "Home")</li>
                         <li>@Html.ActionLink("О нас", "About", "Home")</li>
                         <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                        @if(IsSectionDefined("RolesMenu"))
+                        {
+                        @RenderSection("RolesMenu");
+                        }
                     </ul>
                     @Html.Partial("_LoginPartial")
                 </div>

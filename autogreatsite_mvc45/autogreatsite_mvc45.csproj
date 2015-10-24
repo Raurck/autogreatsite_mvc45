@@ -192,15 +192,51 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Classes\RoleBasedRazorViewEngine.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migration_Cars\201510231648238_StartCars.cs" />
+    <Compile Include="Migration_Cars\201510231648238_StartCars.Designer.cs">
+      <DependentUpon>201510231648238_StartCars.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201510231718381_Cars1.cs" />
+    <Compile Include="Migration_Cars\201510231718381_Cars1.Designer.cs">
+      <DependentUpon>201510231718381_Cars1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201510231723555_Car2.cs" />
+    <Compile Include="Migration_Cars\201510231723555_Car2.Designer.cs">
+      <DependentUpon>201510231723555_Car2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201510241413016_cars_3.cs" />
+    <Compile Include="Migration_Cars\201510241413016_cars_3.Designer.cs">
+      <DependentUpon>201510241413016_cars_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\Configuration.cs" />
+    <Compile Include="Migration_Identety\201510231613416_Start.cs" />
+    <Compile Include="Migration_Identety\201510231613416_Start.Designer.cs">
+      <DependentUpon>201510231613416_Start.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Identety\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Body.cs" />
+    <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarContext.cs" />
+    <Compile Include="Models\Drive.cs" />
+    <Compile Include="Models\Engine.cs" />
+    <Compile Include="Models\Features.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Photo.cs" />
+    <Compile Include="Models\Rudder.cs" />
+    <Compile Include="Models\SampleCars.cs" />
+    <Compile Include="Models\Transmission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -214,6 +250,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
+    <Content Include="Models\ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\autogreatsite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -240,7 +277,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -262,6 +298,20 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Views\Cars\Create.cshtml" />
+    <Content Include="Views\Cars\Delete.cshtml" />
+    <Content Include="Views\Cars\Details.cshtml" />
+    <Content Include="Views\Cars\Edit.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Cars\Administrator\Index.cshtml" />
+    <Content Include="Views\Roles\Administrator\Create.cshtml" />
+    <Content Include="Views\Roles\Administrator\Index.cshtml" />
+    <Content Include="Views\Roles\Administrator\ManageUserRoles.cshtml" />
+    <Content Include="Views\Roles\Administrator\Edit.cshtml" />
+    <Content Include="Views\Home\Buy.cshtml" />
+    <Content Include="Views\Home\Credit.cshtml" />
+    <Content Include="Views\Home\Sell.cshtml" />
+    <Content Include="Views\Home\TradeIn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +326,23 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migration_Cars\201510231648238_StartCars.resx">
+      <DependentUpon>201510231648238_StartCars.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201510231718381_Cars1.resx">
+      <DependentUpon>201510231718381_Cars1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201510231723555_Car2.resx">
+      <DependentUpon>201510231723555_Car2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201510241413016_cars_3.resx">
+      <DependentUpon>201510241413016_cars_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Identety\201510231613416_Start.resx">
+      <DependentUpon>201510231613416_Start.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

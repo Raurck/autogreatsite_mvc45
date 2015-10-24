@@ -54,9 +54,9 @@ namespace autogreatsite_mvc45
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1236389063053896",
+               appSecret: "b2f75a697325efc9bf5bfbc2720356d3");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
