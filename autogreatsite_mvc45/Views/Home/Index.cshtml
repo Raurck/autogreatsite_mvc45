@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/Image00001_cr.png" alt="Контакты" class="img-responsive">
+            <div class="container">
+                <div class="carousel-caption">
+                    <p style="color:mediumaquamarine">
+                        <a asp-controller="Home" asp-action="Contact" class="btn btn-default btn-default">
+                                Контакты
+                            </a>
+</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/offers.png" alt="Trade-In" class="img-responsive">
+            <div class="container">
+                <div class="carousel-caption">
+                    <p>
+                        Ознакомтесь с нашими предложениями.<br />
+                        <a asp-controller="Home" asp-action="TradeIn" class="btn btn-default btn-default">
+                            Trade-In
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>jfdsafsНеобходимо знать</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+    </div>
+    <div class="col-md-3">
+        <h2>Новые поступления</h2>
+        <ul>
+            <li><a asp-controller="Home" asp-action="TradeIn">Машина 1</a></li>
+            <li><a asp-controller="Home" asp-action="TradeIn">Машина 2</a></li>
+            <li><a asp-controller="Home" asp-action="TradeIn">Машина 3</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Интересное в сети</h2>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Contact">Конаткты</a></li>
+            <li><a asp-controller="Home" asp-action="Contact">Где мы?</a></li>
+            <li><a asp-controller="Home" asp-action="Contact">Как позвонить</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Акции</h2>
+        <ul>
+            <li><a asp-controller="Home" asp-action="Buy">Купим!</a></li>
+            <li><a asp-controller="Home" asp-action="Buy">Быстро!</a></li>
+            <li><a asp-controller="Home" asp-action="Buy">Реализуем!</a></li>
+            <li><a asp-controller="Home" asp-action="Buy">Заплатим!</a></li>
+        </ul>
+    </div>
+</div>

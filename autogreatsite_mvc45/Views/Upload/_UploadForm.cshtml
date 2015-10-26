@@ -1,0 +1,24 @@
+﻿@model Raurck.Models.UploadedDocuments
+
+<fieldset class="form">
+    <legend>My Docs</legend>
+    <table width="100%">
+        <tr>
+            <th>Doc Name</th>
+            <th>Upload Datum</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (var doc in Model)
+        {
+            <tr>
+                <td title="@doc.FileName"><a href="/Home/GetFileAsync/">@doc.FileName</a></td>
+                <td></td>
+
+                <td>
+
+                </td>
+            </tr>
+        }
+    </table>
+
+</fieldset>

@@ -3,6 +3,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using autogreatsite_mvc45.Engines;
 
+
 namespace autogreatsite_mvc45
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -13,6 +14,8 @@ namespace autogreatsite_mvc45
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            
 
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new RoleBasedRazorViewEngine(new[] { "Administrator", "Operator", "User" }));
