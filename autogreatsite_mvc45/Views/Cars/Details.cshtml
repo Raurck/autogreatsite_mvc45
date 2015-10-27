@@ -1,11 +1,64 @@
 ﻿@model autogreatsite_mvc45.Models.Car
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Html.DisplayFor(model => model.CarBrand.BrandName) + " " + Html.DisplayFor(model => model.Model);
 }
 
-<h2>Details</h2>
+<h2>@Html.DisplayFor(model => model.CarBrand.BrandName)&nbsp;@Html.DisplayFor(model => model.Model)</h2>
 
+<td>
+    @Html.DisplayNameFor(model => model.Price)
+</td>
+
+<td>
+    @Html.DisplayFor(model => model.Price)
+</td>
+<div class="row">
+    <div class="col-lg-4">
+
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.DistanceTraveled)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.DistanceTraveled)
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.IssueYar)</td>
+                <td>@Html.DisplayFor(model => model.IssueYar)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CarBody.Name)</td>
+                <td>@Html.DisplayFor(model => model.CarBody.Name)</td>
+            </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.CarColor)</td>
+                <td>@Html.DisplayFor(model => model.CarColor)</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CarRudder.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CarRudder.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DisplayNameFor(model => model.CarTransmission.Name)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(model => model.CarTransmission.Name)
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 <div>
     <h4>Car</h4>
     <hr />
@@ -114,7 +167,20 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
+
     </dl>
+    @if (Model.CarPhoto.Count > 0)
+    {
+        <label>Фотографии</label>
+        foreach (var p in Model.CarPhoto)
+        {
+            <br />
+            @Html.Raw(p.FileName);
+            <img src="@Url.Content(Path.Combine("~/Content/Photo",p.FileName))" alt="@p.FileName" / >
+
+        }
+    }
+
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CarId }) |

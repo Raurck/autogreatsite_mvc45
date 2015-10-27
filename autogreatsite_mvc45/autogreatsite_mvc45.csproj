@@ -198,7 +198,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
-    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -218,6 +217,14 @@
     <Compile Include="Migration_Cars\201510241413016_cars_3.Designer.cs">
       <DependentUpon>201510241413016_cars_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration_Cars\201510271652373_Car-2015-10-27.cs" />
+    <Compile Include="Migration_Cars\201510271652373_Car-2015-10-27.Designer.cs">
+      <DependentUpon>201510271652373_Car-2015-10-27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201510271713112_Car-2015-10-27-2.cs" />
+    <Compile Include="Migration_Cars\201510271713112_Car-2015-10-27-2.Designer.cs">
+      <DependentUpon>201510271713112_Car-2015-10-27-2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration_Cars\Configuration.cs" />
     <Compile Include="Migration_Identety\201510231613416_Start.cs" />
     <Compile Include="Migration_Identety\201510231613416_Start.Designer.cs">
@@ -229,8 +236,6 @@
     <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarContext.cs" />
-    <Compile Include="Models\FileUploadJsonResult.cs" />
-    <Compile Include="Models\UploadedDocuments.cs" />
     <Compile Include="Models\Drive.cs" />
     <Compile Include="Models\Engine.cs" />
     <Compile Include="Models\Features.cs" />
@@ -250,7 +255,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\ajaxHelper.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
@@ -263,8 +267,6 @@
     <Content Include="Scripts\jquery.form.min.js" />
     <Content Include="Scripts\jquery.form.min.js.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -330,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -354,6 +357,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration_Cars\201510241413016_cars_3.resx">
       <DependentUpon>201510241413016_cars_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201510271652373_Car-2015-10-27.resx">
+      <DependentUpon>201510271652373_Car-2015-10-27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201510271713112_Car-2015-10-27-2.resx">
+      <DependentUpon>201510271713112_Car-2015-10-27-2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migration_Identety\201510231613416_Start.resx">
       <DependentUpon>201510231613416_Start.cs</DependentUpon>

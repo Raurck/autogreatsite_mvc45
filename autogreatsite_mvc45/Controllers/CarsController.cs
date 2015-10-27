@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using autogreatsite_mvc45.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace autogreatsite_mvc45.Controllers
 {
@@ -29,15 +30,19 @@ namespace autogreatsite_mvc45.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Car car = await db.Cars.FindAsync(id);
+            var car = await db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Where(c => c.CarId == id).FirstAsync();
+
             if (car == null)
             {
                 return HttpNotFound();
             }
+
+            
             return View(car);
         }
 
         // GET: Cars/Create
+        [Authorize(Roles ="Administrator")]
         public ActionResult Create()
         {
             ViewBag.BodyId = new SelectList(db.Bodys, "BodyID", "Name");
@@ -54,11 +59,30 @@ namespace autogreatsite_mvc45.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "CarId,Model,BrandId,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car)
+        [Authorize(Roles = "Administrator")]
+        
+        public async Task<ActionResult> Create([Bind(Include = "CarPhoto,CarId,Model,BrandId,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car,
+            List<HttpPostedFileBase> filesToUpload)
         {
             if (ModelState.IsValid)
             {
                 db.Cars.Add(car);
+
+                if (filesToUpload != null)
+                {
+                    foreach (var fl in filesToUpload)
+                    {
+                        if ((fl!=null) &&( fl.ContentType.StartsWith("image/") ))
+                        {
+                            
+                            var baseName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(fl.FileName); ;
+                            car.CarPhoto.Add(new Photo { FileName = baseName });
+                            fl.SaveAs(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)));
+                        }
+                    }
+
+                }
+
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -69,6 +93,7 @@ namespace autogreatsite_mvc45.Controllers
             ViewBag.EngineId = new SelectList(db.Engines, "EngineId", "EngineId", car.EngineId);
             ViewBag.RudderId = new SelectList(db.Rudders, "RudderID", "Name", car.RudderId);
             ViewBag.TransmissionId = new SelectList(db.Transmissions, "TransmissionID", "Name", car.TransmissionId);
+
             return View(car);
         }
 

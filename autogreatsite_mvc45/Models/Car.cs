@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,6 +26,7 @@ namespace autogreatsite_mvc45.Models
         public double Price { get; set; }
 
         [DisplayName("Год выпуска")]
+        [DefaultValue(2010)]
         public int IssueYar { get; set; }
 
         [DisplayName("Кузов")]
@@ -64,7 +66,16 @@ namespace autogreatsite_mvc45.Models
         [DisplayName("Описание")]
         public string Description { get; set; }
 
-        public virtual List<Photo> CarPhoto { get; set; }
+     
+        private List<Photo> _CarPhoto;
+        [DisplayName("Фотографии")]
+        public virtual List<Photo> CarPhoto { get
+            {
+                if (_CarPhoto == null) {
+                    _CarPhoto = new List<Photo>();
+                }
+                return _CarPhoto;
+            } set { _CarPhoto = value; } }
 
 
     }

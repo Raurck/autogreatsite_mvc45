@@ -12,9 +12,7 @@ namespace autogreatsite_mvc45
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
-                        "~/Scripts/jquery.unobtrusive-ajax.min.js",
-                        "~/Scripts/jquery.form.min.js",
-                        "~/Scripts/ajaxHelper.js"));
+                                "~/Scripts/jquery.form.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));

@@ -37,13 +37,12 @@
         <th>
             @Html.DisplayNameFor(model => model.DistanceTraveled)
         </th>
-
-
         <th>
             @Html.DisplayNameFor(model => model.CarColor)
         </th>
 
-
+        <th>
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -81,6 +80,9 @@
             @Html.DisplayFor(modelItem => item.CarColor)
         </td>
 
+        <td>
+            @Html.ActionLink("Подробно", "Details", new { id = item.CarId }) 
+        </td>
     </tr>
 }
 
