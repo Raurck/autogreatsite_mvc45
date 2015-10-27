@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<autogreatsite_mvc45.Models.Car>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Наш каталог";
 }
 
-<h2>Index</h2>
+<h2>Наш каталог</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить", "Create")
 </p>
 <table class="table">
     <tr>
@@ -84,9 +84,9 @@
         </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CarId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CarId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CarId })
+            @Html.ActionLink("Изменить", "Edit", new { id=item.CarId }) |
+            @Html.ActionLink("Подробно", "Details", new { id=item.CarId }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.CarId })
         </td>
     </tr>
 }

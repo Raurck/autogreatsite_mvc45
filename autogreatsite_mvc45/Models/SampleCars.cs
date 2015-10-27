@@ -19,7 +19,6 @@ namespace autogreatsite_mvc45.Models
             {
                 if (!context.Brands.Any())
                 {
-
                     context.Bodys.Add(new Body { BodyID = 1, Name = "седан" });
                     context.Bodys.Add(new Body { BodyID = 2, Name = "хэчбэк" });
                     context.Bodys.Add(new Body { BodyID = 3, Name = "универсал" });
@@ -32,19 +31,22 @@ namespace autogreatsite_mvc45.Models
                     context.Bodys.Add(new Body { BodyID = 10, Name = "купе" });
                     context.Bodys.Add(new Body { BodyID = 11, Name = "минвэн" });
                     context.Bodys.Add(new Body { BodyID = 12, Name = "лимузин" });
+                    context.SaveChangesAsync();
                 }
                 if (!context.Brands.Any())
                 {
 
-                    context.Drives.Add(new Drive { DriveID = 1, Name = "пердний" });
+                    context.Drives.Add(new Drive { DriveID = 1, Name = "передний" });
                     context.Drives.Add(new Drive { DriveID = 2, Name = "задний" });
                     context.Drives.Add(new Drive { DriveID = 3, Name = "полный" });
+                    context.SaveChangesAsync();
                 }
                 if (!context.Brands.Any())
                 {
 
                     context.Rudders.Add(new Rudder { RudderID = 1, Name = "левый" });
                     context.Rudders.Add(new Rudder { RudderID = 2, Name = "правый" });
+                    context.SaveChangesAsync();
                 }
                 if (!context.Brands.Any())
                 {
@@ -52,11 +54,13 @@ namespace autogreatsite_mvc45.Models
                     context.Transmissions.Add(new Transmission { TransmissionID = 1, Name = "АКПП" });
                     context.Transmissions.Add(new Transmission { TransmissionID = 2, Name = "МКПП" });
                     context.Transmissions.Add(new Transmission { TransmissionID = 3, Name = "CVT" });
+                    context.SaveChangesAsync();
                 }
                 if (!context.Brands.Any())
                 {
                     var nissan = context.Brands.Add(new Brand { BrandId = 1, BrandName = "Nissan", Cars = null });
                     var mitsu = context.Brands.Add(new Brand { BrandId = 2, BrandName = "Mitsubishi", Cars = null });
+                    context.SaveChangesAsync();
                 }
                 if (!context.Cars.Any())
                 {

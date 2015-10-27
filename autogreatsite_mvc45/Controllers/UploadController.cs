@@ -16,13 +16,13 @@ namespace Raurck.Controllers
 
         public ActionResult Index()
         {
-            return View("IndexMulti");
+            return View("_IndexMulti");
         }
 
         public ActionResult GetFileAsync(int id)
         {
             // get your file from the database async...
-            return View("IndexMulti");
+            return View("_IndexMulti");
         }
 
         public FileUploadJsonResult AjaxUpload(HttpPostedFileBase file)
@@ -51,7 +51,7 @@ namespace Raurck.Controllers
                     if (!string.IsNullOrEmpty(f.FileName))
                     {
                         updoc.Add(f);
-                        resultFiles = resultFiles + f.FileName + "<br />";
+                        resultFiles = resultFiles + f.FileName;
                     }
                 }
             }

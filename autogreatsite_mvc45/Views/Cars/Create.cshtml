@@ -1,18 +1,18 @@
-﻿@model autogreatsite_mvc45.Models.Car
+﻿
+@model autogreatsite_mvc45.Models.Car
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Новая машина";
 }
 
-<h2>Create</h2>
+<h2>Ввод данных</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Cars", null, FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Car</h4>
+        <h4>Автомобиль</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BrandId, "BrandId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BrandId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BrandId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BodyId, "BodyId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BodyId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BodyId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BodyId, "", new { @class = "text-danger" })
@@ -64,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TransmissionId, "TransmissionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TransmissionId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TransmissionId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TransmissionId, "", new { @class = "text-danger" })
@@ -72,7 +72,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RudderId, "RudderId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RudderId,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("RudderId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RudderId, "", new { @class = "text-danger" })
@@ -88,7 +88,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DriveId, "DriveId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DriveId,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("DriveId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.DriveId, "", new { @class = "text-danger" })
@@ -96,7 +96,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EngineId, "EngineId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EngineId,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("EngineId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EngineId, "", new { @class = "text-danger" })
@@ -118,60 +118,25 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        <div>
+            <label class = "control-label col-md-2">Фотографии</label>
+            <input type="file" name="filesToUpload" multiple="multiple" /><br>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    A filestream demo
-</div>
 
-<div id="doclist">
-    @Html.Action("UploadForm","Upload")
-</div>
-
-<form id="ajaxUploadForm" action="@Url.Action("AjaxUpload", "Upload")" method="post" enctype="multipart/form-data">
-
-    <fieldset class="form">
-        <legend>Async Upload Form</legend>
-        <ol class="last">
-            <li>
-                <label>upload </label>
-                <input type="file" id="fileInput" name="file" style="width:317px" />
-            </li>
-            <li>
-                <input class="btn" id="ajaxUploadButton" type="submit" value="Upload" />
-            </li>
-        </ol>
-    </fieldset>
-</form>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="text-center">
+    @Html.ActionLink("К списку автомобилей", "Index")
 </div>
 
 @section Scripts {
-<script type="text/javascript">
-        $(document).ready(function () {
-            $("#ajaxUploadForm").ajaxForm({
-                target: "#ajaxUploadForm",
-                iframe: true,
-                dataType: "json",
-                beforeSubmit: function () {
-                },
-                success: function (result) {
-                loadUrlContent('@(Url.Action("UploadForm"))', 'doclist');
-		        $("#fileInput").replaceWith("<input type=\"file\" id=\"fileInput\" name=\"file\" style=\"width:317px\" />");
-		        },
-		        error: function (xhr, textStatus, errorThrown) {
-		        }
-		    });
-		});
-</script>
     @Scripts.Render("~/bundles/jqueryval")
 }

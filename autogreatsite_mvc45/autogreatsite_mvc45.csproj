@@ -326,7 +326,7 @@
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Upload\_UploadForm.cshtml" />
     <Content Include="Views\Upload\GetFileAsync.cshtml" />
-    <Content Include="Views\Upload\IndexMulti.cshtml" />
+    <Content Include="Views\Upload\_IndexMulti.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

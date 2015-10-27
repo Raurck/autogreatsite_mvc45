@@ -3,18 +3,50 @@
 }
 <h2>@ViewData["Title"]</h2>
 
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <address>
+            Мы открыты с 10-00 до 20-00 по адресу<br />
+            620141, г. Екатеринбург, <br />
+            <strong>ул. Автомагистральная, 12</strong><br />
+        </address>
 
-<address>
-    Мы открыты с 10-00 до 20-00 по адресу<br />
-    620141, г. Екатеринбург, <br />
-    <strong>ул. Автомагистральная, 12</strong><br />
-</address>
-<address>
-    <strong>Ждем Ваших звонков по телефонам</strong><br />
-    +79086300008<br />
-    +79826565551<br />
-</address>
+        <address>
+            <strong>Ждем Ваших звонков по телефонам</strong><br />
+            +79086300008<br />
+            +79826565551<br />
+        </address>
 
-<address>
-    <strong>E-mail:</strong> <a href="mailto:info.avtogreat@mail.ru">info.avtogreat@mail.ru</a><br />
-</address>
+        <address>
+            <strong>E-mail:</strong> <a href="mailto:info.avtogreat@mail.ru">info.avtogreat@mail.ru</a><br />
+        </address>
+    </div>
+    <div id="map" class="col-lg-6 col-md-6 col-sm-6" style="height: 617px">
+    </div>
+</div>
+
+@section scripts{
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script type="text/javascript">
+        ymaps.ready(init);
+        var myMap,
+            myPlacemark;
+
+        function init(){
+            myMap = new ymaps.Map("map", {
+                center: [56.87646720, 60.55354241],
+                zoom: 17
+            });
+
+            myPlacemark = new ymaps.Placemark([56.87732098, 60.55354241], {
+                hintContent: 'Автосалон AutoGreat',
+                balloonContent: 'Автосалон AutoGreat'                
+            },
+                {
+                    preset: 'islands#redIcon'
+                });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+</script>
+}
