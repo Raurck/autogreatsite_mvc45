@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
+using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+
 
 namespace autogreatsite_mvc45.Engines
 {
@@ -122,6 +126,7 @@ namespace autogreatsite_mvc45.Engines
             return (viewPath);
         }
 
+
         /// <summary>
         /// Gets a value that indicates whether a file exists in the specified virtual file system (path).
         /// </summary>
@@ -129,16 +134,22 @@ namespace autogreatsite_mvc45.Engines
         /// true if the file exists in the virtual file system; otherwise, false.
         /// </returns>
         /// <param name="controllerContext">The controller context.</param><param name="virtualPath">The virtual path.</param>
+        /// 
+
         protected override bool FileExists(ControllerContext controllerContext, string virtualPath)
         {
-            if (controllerContext.HttpContext.User != null)
+            if ((controllerContext.HttpContext.User != null)&&(controllerContext.HttpContext.User.Identity.IsAuthenticated))
             {
-                IPrincipal principal = controllerContext.HttpContext.User;
-                if (_roles.Where(role => principal.IsInRole(role))
-                          .Any(role => base.FileExists(controllerContext, String.Format(CultureInfo.InvariantCulture, virtualPath, role))))
-                {
-                    return (true);
-                }
+                var UserManager = controllerContext.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var principal = controllerContext.HttpContext.User.Identity.GetUserId();
+
+                    if (_roles.Where(role => UserManager.IsInRole(principal, role))
+                              .Any(role => base.FileExists(controllerContext, String.Format(CultureInfo.InvariantCulture, virtualPath, role))))
+                    {
+                        return (true);
+                    }
+                
+            
             }
             return (base.FileExists(controllerContext, virtualPath));
         }

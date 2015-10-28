@@ -9,6 +9,8 @@ using System.Web;
 using System.Web.Mvc;
 using autogreatsite_mvc45.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.Threading;
 
 namespace autogreatsite_mvc45.Controllers
 {
@@ -26,6 +28,7 @@ namespace autogreatsite_mvc45.Controllers
         // GET: Cars/Details/5
         public async Task<ActionResult> Details(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

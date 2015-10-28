@@ -4,15 +4,15 @@
     ViewBag.Title = Html.DisplayFor(model => model.CarBrand.BrandName) + " " + Html.DisplayFor(model => model.Model);
 }
 
-<h2>@Html.DisplayFor(model => model.CarBrand.BrandName)&nbsp;@Html.DisplayFor(model => model.Model)</h2>
-
-<td>
-    @Html.DisplayNameFor(model => model.Price)
-</td>
-
-<td>
-    @Html.DisplayFor(model => model.Price)
-</td>
+<h2 style="text-transform:uppercase">@Html.DisplayFor(model => model.CarBrand.BrandName)&nbsp;@Html.DisplayFor(model => model.Model)</h2>
+<div class="div-price">
+    <span style="font-size:30pt">
+        <strong>
+            @Html.DisplayFor(model => model.Price)
+        </strong>
+        <span class="glyphicon glyphicon-rub" style="font-size:27pt"></span>
+    </span>
+</div>	
 <div class="row">
     <div class="col-lg-4">
 
@@ -170,7 +170,7 @@
 
     </dl>
     @if (Model.CarPhoto.Count > 0)
-    {
+            {
         <label>Фотографии</label>
         foreach (var p in Model.CarPhoto)
         {

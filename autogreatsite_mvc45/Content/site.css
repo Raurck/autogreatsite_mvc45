@@ -34,6 +34,14 @@ textarea {
 .navbar-brand-slim {
    padding: 0px;
 }
+.div-price {
+    background: transparent linear-gradient(to bottom, #808080, #C0C0C0, #D3D3D3, #FFF, #C0C0C0, #808080) repeat scroll 0 0 !important;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 2px;
+padding-left: 10px;
+color: black;
+}
+
 @media (min-width: 768px) {
     .carousel-caption {
         z-index: 10 !important;

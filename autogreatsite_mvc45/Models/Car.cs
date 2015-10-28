@@ -23,6 +23,7 @@ namespace autogreatsite_mvc45.Models
         public int DistanceTraveled { get; set; }
 
         [DisplayName("Цена")]
+        [DisplayFormat(DataFormatString = "{0:### ### ### ###}")]
         public double Price { get; set; }
 
         [DisplayName("Год выпуска")]
