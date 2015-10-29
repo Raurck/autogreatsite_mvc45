@@ -10,12 +10,24 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace autogreatsite_mvc45.Controllers
 {
+    [Authorize]
     public class RolesController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();
-        
+
         //
-        // GET: /Roles/
+        // Post: /Roles/
+        [AllowAnonymous]
+        public ActionResult RoleMenuItem()
+        {
+            if ((Request.IsAuthenticated) && (User.IsInRole("Administrator")))
+            {
+                return PartialView("_RolesPartial");
+            }
+
+            return new EmptyResult();
+        }
+
         public ActionResult Index()
         {
             var roles = context.Roles.ToList();

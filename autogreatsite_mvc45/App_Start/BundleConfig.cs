@@ -9,7 +9,8 @@ namespace autogreatsite_mvc45
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/site.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
                                 "~/Scripts/jquery.form.min.js"));
@@ -31,7 +32,7 @@ namespace autogreatsite_mvc45
                       "~/Content/site.css")
                       );
 
-            BundleTable.EnableOptimizations = true;
+           // BundleTable.EnableOptimizations = true;
         }
     }
 }

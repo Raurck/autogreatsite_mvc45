@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 0px;
     padding-bottom: 20px;
 }
 
@@ -33,6 +33,20 @@ textarea {
 }
 .navbar-brand-slim {
    padding: 0px;
+}
+
+a.inactive{
+    color:black;
+}
+a.inactive:hover {
+text-decoration:none;
+    }
+a.inactive:visited{
+
+}
+.header-text{
+    font-size:25px;
+    font-family:Tahoma;
 }
 .div-price {
     background: transparent linear-gradient(to bottom, #808080, #C0C0C0, #D3D3D3, #FFF, #C0C0C0, #808080) repeat scroll 0 0 !important;
