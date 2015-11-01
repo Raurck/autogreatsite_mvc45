@@ -44,6 +44,20 @@ text-decoration:none;
 a.inactive:visited{
 
 }
+a.seller-phone{
+    color:white;
+}
+a.seller-phone:hover {
+text-decoration:none;
+    }
+a.seller-phone:visited{
+
+}
+.seller-phone-text{
+    font-size:18px;
+    font-family:Tahoma;
+}
+
 .header-text{
     font-size:25px;
     font-family:Tahoma;
@@ -54,6 +68,16 @@ border-top-left-radius: 10px;
 border-bottom-left-radius: 2px;
 padding-left: 10px;
 color: black;
+}
+
+.div-phone-order {
+    background: transparent linear-gradient(to bottom, #ff0000, #d30b0b, #7d0505, #420303, #fb0303) repeat scroll 0 0 !important;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+border-top-right-radius:10px;
+border-bottom-right-radius:10px;
+padding-left: 10px;
+color: white;
 }
 
 @media (min-width: 768px) {

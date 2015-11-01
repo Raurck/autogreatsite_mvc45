@@ -1,0 +1,12 @@
+﻿@model IEnumerable<autogreatsite_mvc45.Models.Finder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <h2>Поиск (тестовый)</h2>
+@Html.DropDownList("Brands", null, htmlAttributes: new { @class = "form-control" })
+    <input type="submit" value="Поиск" class="btn btn-default" / >
+}

@@ -195,6 +195,7 @@
     <Compile Include="Classes\RoleBasedRazorViewEngine.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
+    <Compile Include="Controllers\FinderController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -225,6 +226,26 @@
     <Compile Include="Migration_Cars\201510271713112_Car-2015-10-27-2.Designer.cs">
       <DependentUpon>201510271713112_Car-2015-10-27-2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration_Cars\201511010841100_cars2015-11-01-01.cs" />
+    <Compile Include="Migration_Cars\201511010841100_cars2015-11-01-01.Designer.cs">
+      <DependentUpon>201511010841100_cars2015-11-01-01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511011239202_cars2015-11-01-02.cs" />
+    <Compile Include="Migration_Cars\201511011239202_cars2015-11-01-02.Designer.cs">
+      <DependentUpon>201511011239202_cars2015-11-01-02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511011257334_cars2015-11-01-03.cs" />
+    <Compile Include="Migration_Cars\201511011257334_cars2015-11-01-03.Designer.cs">
+      <DependentUpon>201511011257334_cars2015-11-01-03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511011308485_cars2015-11-01-04.cs" />
+    <Compile Include="Migration_Cars\201511011308485_cars2015-11-01-04.Designer.cs">
+      <DependentUpon>201511011308485_cars2015-11-01-04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511011312024_cars2015-11-01-05.cs" />
+    <Compile Include="Migration_Cars\201511011312024_cars2015-11-01-05.Designer.cs">
+      <DependentUpon>201511011312024_cars2015-11-01-05.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration_Cars\Configuration.cs" />
     <Compile Include="Migration_Identety\201510231613416_Start.cs" />
     <Compile Include="Migration_Identety\201510231613416_Start.Designer.cs">
@@ -233,12 +254,16 @@
     <Compile Include="Migration_Identety\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Body.cs" />
+    <Compile Include="Models\CarModel.cs" />
+    <Compile Include="Models\BrandDTO.cs" />
     <Compile Include="Models\Brand.cs" />
+    <Compile Include="Models\CarDTO.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarContext.cs" />
     <Compile Include="Models\Drive.cs" />
     <Compile Include="Models\Engine.cs" />
     <Compile Include="Models\Features.cs" />
+    <Compile Include="Models\Finder.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Photo.cs" />
@@ -253,10 +278,58 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fotorama.css" />
     <Content Include="Content\Images\arrow_blue_15.png" />
+    <Content Include="Content\Images\brands\alfa-romeo.png" />
+    <Content Include="Content\Images\brands\audi.png" />
+    <Content Include="Content\Images\brands\autovaz.png" />
+    <Content Include="Content\Images\brands\bmw.png" />
+    <Content Include="Content\Images\brands\chaevrolet.png" />
+    <Content Include="Content\Images\brands\Citroen.png" />
+    <Content Include="Content\Images\brands\ferrari.png" />
+    <Content Include="Content\Images\brands\fiat.png" />
+    <Content Include="Content\Images\brands\ford.png" />
+    <Content Include="Content\Images\brands\Geely.png" />
+    <Content Include="Content\Images\brands\greatwall.png" />
+    <Content Include="Content\Images\brands\honda.png" />
+    <Content Include="Content\Images\brands\hyundai.png" />
+    <Content Include="Content\Images\brands\infiniti.png" />
+    <Content Include="Content\Images\brands\jaguar.png" />
+    <Content Include="Content\Images\brands\jeep.png" />
+    <Content Include="Content\Images\brands\kia.png" />
+    <Content Include="Content\Images\brands\lancia.png" />
+    <Content Include="Content\Images\brands\land-rover.png" />
+    <Content Include="Content\Images\brands\lexus.png" />
+    <Content Include="Content\Images\brands\Lifan.png" />
+    <Content Include="Content\Images\brands\mazda.png" />
+    <Content Include="Content\Images\brands\mercedes.png" />
+    <Content Include="Content\Images\brands\mgcars.png" />
+    <Content Include="Content\Images\brands\mini.png" />
+    <Content Include="Content\Images\brands\mitsubishi.png" />
+    <Content Include="Content\Images\brands\nissan.png" />
+    <Content Include="Content\Images\brands\opel.png" />
+    <Content Include="Content\Images\brands\Peugeot.png" />
+    <Content Include="Content\Images\brands\porsche.png" />
+    <Content Include="Content\Images\brands\renault.png" />
+    <Content Include="Content\Images\brands\seat.png" />
+    <Content Include="Content\Images\brands\skoda.png" />
+    <Content Include="Content\Images\brands\ssangyong.png" />
+    <Content Include="Content\Images\brands\subaru.png" />
+    <Content Include="Content\Images\brands\toyota.png" />
+    <Content Include="Content\Images\brands\volvo.png" />
+    <Content Include="Content\Images\brands\vw.png" />
     <Content Include="Content\Images\jbt_slide1.jpg" />
     <Content Include="Content\Images\jbt_slide2.jpg" />
     <Content Include="Content\Images\logo_header.png" />
+    <Content Include="Content\Images\photo.svg" />
+    <Content Include="Content\Photo\2b78bec7-34d0-4787-ba74-c6eb10b340b2.jpg" />
+    <Content Include="Content\Photo\4c98a49a-edc6-4b28-8424-ea3bd7ba6e50.jpg" />
+    <Content Include="Content\Photo\5a31e2ab-2ccf-4e45-acab-62914adda99a.JPG" />
+    <Content Include="Content\Photo\63c5f171-334d-4bee-a1f3-374d439fe7e9.JPG" />
+    <Content Include="Content\Photo\ba308cdc-b09d-40e0-a676-f78765892549.jpg" />
+    <Content Include="Content\Photo\dfbc7869-2f9c-410a-ba72-9274896f682b.JPG" />
+    <Content Include="Content\Photo\e4688052-7687-4292-8d0c-91b365535b2d.jpg" />
+    <Content Include="Content\Photo\fe022df9-9384-4a7a-b773-1f06203ab144.JPG" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -274,6 +347,7 @@
     <Content Include="Content\Fonts\Days.ttf" />
     <None Include="Properties\PublishProfiles\autogreatsite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\fotorama.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.form.js" />
@@ -344,10 +418,10 @@
     <Content Include="Views\Upload\_IndexMulti.cshtml" />
     <Content Include="Views\Shared\_Layout - Копировать.cshtml" />
     <Content Include="Views\Shared\_RolesPartial.cshtml" />
+    <Content Include="Views\Finder\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\Photo\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -375,6 +449,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migration_Cars\201510271713112_Car-2015-10-27-2.resx">
       <DependentUpon>201510271713112_Car-2015-10-27-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511010841100_cars2015-11-01-01.resx">
+      <DependentUpon>201511010841100_cars2015-11-01-01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511011239202_cars2015-11-01-02.resx">
+      <DependentUpon>201511011239202_cars2015-11-01-02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511011257334_cars2015-11-01-03.resx">
+      <DependentUpon>201511011257334_cars2015-11-01-03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511011308485_cars2015-11-01-04.resx">
+      <DependentUpon>201511011308485_cars2015-11-01-04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511011312024_cars2015-11-01-05.resx">
+      <DependentUpon>201511011312024_cars2015-11-01-05.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migration_Identety\201510231613416_Start.resx">
       <DependentUpon>201510231613416_Start.cs</DependentUpon>

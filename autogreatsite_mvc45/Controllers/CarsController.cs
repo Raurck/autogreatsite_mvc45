@@ -17,11 +17,30 @@ namespace autogreatsite_mvc45.Controllers
     public class CarsController : Controller
     {
         private CarContext db = new CarContext();
+        private Finder f;//= new Finder(db);
+        // GET: Cars
+        [Route("Cars/Index/{brand}/")]
+        public async Task<ActionResult> Index(string brand)
+        {
+            f = new Finder(db);
+            var cars = db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Include(c => c.ModelName).Where(c => c.CarBrand.BrandName== brand);
+            return View(await cars.ToListAsync());
+        }
+
+        [Route("Cars/Index/{brand}/{model}")]
+        public async Task<ActionResult> Index(string brand, string model)
+        {
+            f = new Finder(db);
+            var cars = db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Include(c => c.ModelName).Where(c => c.CarBrand.BrandName == brand).Where(c => c.ModelName.ModelName==model);
+            return View(await cars.ToListAsync());
+        }
 
         // GET: Cars
+        [Route("Cars/Index")]
         public async Task<ActionResult> Index()
         {
-            var cars = db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission);
+            f= new Finder(db);
+            var cars = db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Include(c => c.ModelName);
             return View(await cars.ToListAsync());
         }
 
@@ -33,7 +52,7 @@ namespace autogreatsite_mvc45.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var car = await db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Where(c => c.CarId == id).FirstAsync();
+            var car = await db.Cars.Include(c => c.CarBody).Include(c => c.CarBrand).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Include(c => c.ModelName).Where(c => c.CarId == id).FirstAsync();
 
             if (car == null)
             {
@@ -45,10 +64,12 @@ namespace autogreatsite_mvc45.Controllers
         }
 
         // GET: Cars/Create
-        [Authorize(Roles ="Administrator")]
+        //[Authorize(Roles ="Administrator")]
         public ActionResult Create()
         {
             ViewBag.BodyId = new SelectList(db.Bodys, "BodyID", "Name");
+            ViewBag.ModelName ="";
+            //ViewBag.ModelId = new SelectList(db.CarModels, "ModelID", "ModelName");
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "BrandName");
             ViewBag.DriveId = new SelectList(db.Drives, "DriveID", "Name");
             ViewBag.EngineId = new SelectList(db.Engines, "EngineId", "EngineId");
@@ -62,13 +83,25 @@ namespace autogreatsite_mvc45.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrator")]
-        
+                
         public async Task<ActionResult> Create([Bind(Include = "CarPhoto,CarId,Model,BrandId,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car,
-            List<HttpPostedFileBase> filesToUpload)
+            List<HttpPostedFileBase> filesToUpload, string ModelName)
         {
+            int modelId = -1;
+            if (db.CarModels.Where(c => c.ModelName == ModelName).Count() > 0)
+            {
+                modelId = db.CarModels.Where(c => c.ModelName == ModelName).FirstOrDefault().ModelId;
+            }
+            else
+            {
+                db.CarModels.Add(new CarModel { ModelName = ModelName });
+                db.SaveChanges();
+                modelId = db.CarModels.Where(c => c.ModelName == ModelName).FirstOrDefault().ModelId;
+            }
+            car.ModelId = modelId;
             if (ModelState.IsValid)
             {
+
                 db.Cars.Add(car);
 
                 if (filesToUpload != null)
@@ -126,6 +159,7 @@ namespace autogreatsite_mvc45.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Cars/{brand}/{model}/{id:int}")]
         public async Task<ActionResult> Edit([Bind(Include = "CarId,Model,BrandId,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car)
         {
             if (ModelState.IsValid)

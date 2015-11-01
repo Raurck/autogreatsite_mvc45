@@ -1,10 +1,20 @@
 ﻿@model autogreatsite_mvc45.Models.Car
 
 @{
-    ViewBag.Title = Html.DisplayFor(model => model.CarBrand.BrandName) + " " + Html.DisplayFor(model => model.Model);
+    ViewBag.Title = Html.DisplayFor(model => model.CarBrand.BrandName) + " " + Html.DisplayFor(model => model.ModelName.ModelName);
 }
+<h2 style="text-transform:uppercase">
+    @if (File.Exists(Server.MapPath("~/Content/Images/brands/" + Model.CarBrand.LogoName + ".png")))
+    {
+        <img src="@(String.Format("/Content/Images/brands/{0}.png", Model.CarBrand.LogoName))" height="50" />
 
-<h2 style="text-transform:uppercase">@Html.DisplayFor(model => model.CarBrand.BrandName)&nbsp;@Html.DisplayFor(model => model.Model)</h2>
+    }
+    else if (File.Exists(Server.MapPath("~/Content/Images/brands/" + Model.CarBrand.BrandName + ".png")))
+    {
+        <img src="@(String.Format("/Content/Images/brands/{0}.png", Model.CarBrand.BrandName))" height="50" />
+    }
+    @Html.DisplayFor(model => model.CarBrand.BrandName)&nbsp;@Html.DisplayFor(model => model.ModelName.ModelName)
+</h2>
 <div class="div-price">
     <span style="font-size:30pt">
         <strong>
@@ -12,11 +22,58 @@
         </strong>
         <span class="glyphicon glyphicon-rub" style="font-size:27pt"></span>
     </span>
-</div>	
+</div>
 <div class="row">
+    <div class="col-lg-8">
+        @if (Model.CarPhoto.Count > 0)
+        {
+
+            <div class="fotorama" data-nav="thumbs"
+                     data-width="100%"
+                     data-ratio="700/500"
+                     data-minwidth="400"
+                     data-maxwidth="640"
+                     data-minheight="300"
+                     data-maxheight="100%"
+                      data-arrows="true"
+     data-click="true"
+     data-swipe="true"
+                 >
+                @foreach (var p in Model.CarPhoto)
+                {
+
+                <img src="@Url.Content(Path.Combine("~/Content/Photo",p.FileName))" alt="@p.FileName" / >
+                }
+                
+            </div>
+        }
+        else
+        {
+            <div class="text-center"style="margin-top:10px;">
+                <img src="~/Content/Images/photo.svg" class="img-thumbnail" width="300" />
+            </div>
+        }
+
+    </div>
     <div class="col-lg-4">
 
         <table class="table table-striped">
+            <tr class="hidden-lg hidden-md">
+                <td colspan="2" class="text-center">
+                    <div class="div-phone-order">
+                        <a href="tel:+7-908-630-0008" id="seller-phone" class="seller-phone">
+                            <span class="seller-phone-text">
+                                <strong>
+                                    Интересно?
+                                    <span class=" glyphicon glyphicon-phone"></span>
+                                    +7 908 630 00 08
+                                </strong>
+                            </span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
             <tr>
                 <td>
                     @Html.DisplayNameFor(model => model.DistanceTraveled)
@@ -30,6 +87,11 @@
                 <td>@Html.DisplayNameFor(model => model.IssueYar)</td>
                 <td>@Html.DisplayFor(model => model.IssueYar)</td>
             </tr>
+            <tr>
+                <td>@Html.DisplayNameFor(model => model.OwnerCount)</td>
+                <td>@Html.DisplayFor(model => model.OwnerCount)</td>
+            </tr>
+
             <tr>
                 <td>@Html.DisplayNameFor(model => model.CarBody.Name)</td>
                 <td>@Html.DisplayFor(model => model.CarBody.Name)</td>
@@ -56,133 +118,25 @@
                     @Html.DisplayFor(model => model.CarTransmission.Name)
                 </td>
             </tr>
+            <tr class="hidden-sm hidden-xs">
+                <td colspan="2" class="text-center">
+                    <div class="div-phone-order">
+                        <a href="tel:+7-908-630-0008" id="seller-phone" class="seller-phone">
+                            <span class="seller-phone-text">
+                                <strong>
+                                    Интересно?
+                                    <span class=" glyphicon glyphicon-phone"></span>
+                                    +7 908 630 00 08
+                                </strong>
+                            </span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
         </table>
     </div>
 </div>
-<div>
-    <h4>Car</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CarBody.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarBody.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarBrand.BrandName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarBrand.BrandName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarDrive.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarDrive.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarEngine.EngineId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarEngine.EngineId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarRudder.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarRudder.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarTransmission.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarTransmission.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.DistanceTraveled)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DistanceTraveled)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IssueYar)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IssueYar)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OwnerCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OwnerCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CarColor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CarColor)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-
-    </dl>
-    @if (Model.CarPhoto.Count > 0)
-            {
-        <label>Фотографии</label>
-        foreach (var p in Model.CarPhoto)
-        {
-            <br />
-            @Html.Raw(p.FileName);
-            <img src="@Url.Content(Path.Combine("~/Content/Photo",p.FileName))" alt="@p.FileName" / >
-
-        }
-    }
-
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CarId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.CarId }) |
+    @Html.ActionLink("Список", "Index")
 </p>

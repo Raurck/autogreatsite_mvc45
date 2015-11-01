@@ -58,8 +58,47 @@ namespace autogreatsite_mvc45.Models
                 }
                 if (!context.Brands.Any())
                 {
-                    var nissan = context.Brands.Add(new Brand { BrandId = 1, BrandName = "Nissan", Cars = null });
+                   var nissan = context.Brands.Add(new Brand { BrandId = 1, BrandName = "Nissan", Cars = null });
                     var mitsu = context.Brands.Add(new Brand { BrandId = 2, BrandName = "Mitsubishi", Cars = null });
+
+                    context.Brands.Add(new Brand { BrandName = "Alfa-Romeo",Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Audi", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Bmw", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Chaevrolet", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Citroen", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Ferrari", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Fiat", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Ford", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Geely", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Greatwall", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Honda", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Hyundai", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Infiniti", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Jaguar", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Jeep", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Kia", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Lancia", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Land - rover", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Lexus", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Lifan", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Mazda", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Mercedes", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Mgcars", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Mini", Cars = null});
+                    //context.Brands.Add(new Brand {  BrandName = "Mitsubishi", Cars = null});
+                   // context.Brands.Add(new Brand {  BrandName = "Nissan", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Opel", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Peugeot", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Porsche", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Renault", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Seat", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Skoda", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Ssangyong", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Subaru", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Toyota", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Volvo", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "Volkswagen", LogoName = "vw", Cars = null});
+                    context.Brands.Add(new Brand {  BrandName = "ВАЗ", LogoName = "autovaz", Cars = null });
                     context.SaveChangesAsync();
                 }
                 if (!context.Cars.Any())
@@ -70,7 +109,7 @@ namespace autogreatsite_mvc45.Models
                         var nissan = context.Brands.SingleOrDefault(x=>x.BrandName=="Nissan");// .Add(new Brand { BrandId = 1, BrandName = "Nissan", Cars = null });
                         var mitsu = context.Brands.SingleOrDefault(x => x.BrandName == "Mitsubishi");
 
-                        context.Cars.Add(new Car { Model = String.Format("машина {0}", i), BrandId = (i%2==0?mitsu.BrandId:nissan.BrandId), DriveId = 1, RudderId = 1, BodyId = 1, TransmissionId = 1, IssueYar = rnd.Next(2000, 2014), DistanceTraveled = rnd.Next(5, 100) * 1000, Price = rnd.Next(50, 900) * 1000 ,CarColor="Другой",Description="Тестовая запись"});
+                        context.Cars.Add(new Car { ModelId = 0, BrandId = (i%2==0?mitsu.BrandId:nissan.BrandId), DriveId = 1, RudderId = 1, BodyId = 1, TransmissionId = 1, IssueYar = rnd.Next(2000, 2014), DistanceTraveled = rnd.Next(5, 100) * 1000, Price = rnd.Next(50, 900) * 1000 ,CarColor="Другой",Description="Тестовая запись"});
                     }
                     context.SaveChangesAsync();
                 }

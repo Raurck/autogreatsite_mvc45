@@ -142,13 +142,11 @@ namespace autogreatsite_mvc45.Engines
             {
                 var UserManager = controllerContext.HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
                 var principal = controllerContext.HttpContext.User.Identity.GetUserId();
-
                     if (_roles.Where(role => UserManager.IsInRole(principal, role))
                               .Any(role => base.FileExists(controllerContext, String.Format(CultureInfo.InvariantCulture, virtualPath, role))))
                     {
                         return (true);
                     }
-                
             
             }
             return (base.FileExists(controllerContext, virtualPath));

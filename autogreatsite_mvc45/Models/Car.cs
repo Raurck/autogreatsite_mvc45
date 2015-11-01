@@ -12,7 +12,9 @@ namespace autogreatsite_mvc45.Models
         public int CarId { get; set; }
 
         [DisplayName("Модель")]
-        public string Model { get; set; }
+        public int ModelId { get; set; }
+        [DisplayName("Модель")]
+        public virtual CarModel ModelName { get; set; }
 
         [DisplayName("Производитель")]
         public int? BrandId { get; set; }
