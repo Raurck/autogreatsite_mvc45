@@ -1,103 +1,18 @@
 ﻿@model IEnumerable<autogreatsite_mvc45.Models.Car>
 
+
 @{
     ViewBag.Title = "Наш каталог";
 }
 
 <h2>Наш каталог</h2>
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fffinder">
+    Показать поиск
+</button>
+
+<div  id="fffinder" class="collapse in">
+    @Html.Action("Longview", "Finder")
+</div>
 
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                Фото
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModelName.ModelName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarBrand.BrandName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IssueYar)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarBody.Name)
-
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarEngine.EngineId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarRudder.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarTransmission.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DistanceTraveled)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CarColor)
-            </th>
-
-            <th>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-
-            <tr onclick="window.location.href = '@Url.Action("Details", new { id = item.CarId })'">
-                <td>
-                    @if (item.CarPhoto.Count > 0)
-                {
-                        <img src="~/Content/Images/photo.svg" width="20" height="20" />
-                    }
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ModelName.ModelName)
-
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarBrand.BrandName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.IssueYar)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarBody.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarEngine.EngineId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarRudder.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarTransmission.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DistanceTraveled)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CarColor)
-                </td>
-
-                <td>
-                    @Html.ActionLink("Подробно", "Details", new { id = item.CarId })
-                </td>
-            </tr>
-
-        }
-    </tbody>
-</table>
+    @Html.Partial("_CarsList", Model)

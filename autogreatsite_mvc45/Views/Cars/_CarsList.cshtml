@@ -1,0 +1,106 @@
+﻿@model IEnumerable<autogreatsite_mvc45.Models.Car>
+<div id="searchResultSection">
+
+    <table class="table table-hover table-condensed ">
+        <thead>
+            <tr>
+                <th>
+                    Фото
+                </th>
+                <th colspan="2">
+                    @Html.DisplayNameFor(model => model.CarModel.Brand.BrandName)
+                    /
+                    @Html.DisplayNameFor(model => model.CarModel.ModelName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IssueYar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CarBody.Name)
+                </th>
+                <th class="hidden-sm hidden-xs">
+                    @Html.DisplayNameFor(model => model.CarEngine.EngineId)
+                </th>
+                <th class="hidden-sm hidden-xs">
+                    @Html.DisplayNameFor(model => model.CarRudder.Name)
+                </th>
+                <th class="hidden-sm hidden-xs">
+                    @Html.DisplayNameFor(model => model.CarTransmission.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DistanceTraveled)
+                </th>
+                <th class="hidden-sm hidden-xs">
+                    @Html.DisplayNameFor(model => model.CarColor)
+                </th>
+
+                <th class="hidden-sm hidden-xs">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr onclick="window.location.href = '@Url.Action("Details", new { id = item.CarId })'">
+                    <td>
+                        @if (item.CarPhoto.Count > 0)
+                {
+                            <img src="~/Content/Images/photo.svg" width="20" height="20" />
+                        }
+                    </td>
+                    <td width="50px">
+                        
+                            <div class="tabledata-img">@if (File.Exists(Server.MapPath("~/Content/Images/brands/" + item.CarModel.Brand.LogoName + ".png")))
+                            {
+                                <img src="@(String.Format("/Content/Images/brands/{0}.png", item.CarModel.Brand.LogoName))"   />
+
+                            }
+                            else if (File.Exists(Server.MapPath("~/Content/Images/brands/" + item.CarModel.Brand.BrandName + ".png")))
+                            {
+                                <img src="@(String.Format("/Content/Images/brands/{0}.png", item.CarModel.Brand.BrandName))"  />
+                            }</div></td><td>
+                            @Html.DisplayFor(modelItem => item.CarModel.Brand.BrandName)<br />
+                            @Html.DisplayFor(modelItem => item.CarModel.ModelName)
+                      
+                        
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IssueYar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarBody.Name)
+                    </td>
+                    <td class="hidden-sm hidden-xs">
+                        @Html.DisplayFor(modelItem => item.CarEngine.EngineId)
+                    </td>
+                    <td class="hidden-sm hidden-xs">
+                        @Html.DisplayFor(modelItem => item.CarRudder.Name)
+                    </td>
+                    <td class="hidden-sm hidden-xs">
+                        @Html.DisplayFor(modelItem => item.CarTransmission.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DistanceTraveled)
+                    </td>
+                    <td class="hidden-sm hidden-xs">
+                        @Html.DisplayFor(modelItem => item.CarColor)
+                    </td>
+
+                    <td class="hidden-sm hidden-xs">
+                        @Html.ActionLink("Подробно", "Details", new { id = item.CarId })
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

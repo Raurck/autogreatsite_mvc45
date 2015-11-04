@@ -1,12 +1,35 @@
-﻿@model IEnumerable<autogreatsite_mvc45.Models.Finder>
+﻿@model autogreatsite_mvc45.Models.Finder
 
 @{
     ViewBag.Title = "Index";
 }
 
-@using (Html.BeginForm())
-{
+<form action="@Url.Action("")" method="post" data-autogreat-finder="true" data-autogreat-finder-replace="#searchResultSection">
+
     <h2>Поиск (тестовый)</h2>
-@Html.DropDownList("Brands", null, htmlAttributes: new { @class = "form-control" })
-    <input type="submit" value="Поиск" class="btn btn-default" / >
-}
+    @Html.DropDownList("f_brandId", ViewBag.Brands as SelectList, new Dictionary<string, Object> { { "class","form-control" },
+                                                                       { "data-autogreat-ddl-finder-ajax", "true" },
+                                                                       { "data-autogreat-ddl-finder-action", "Finder/RenewModels/" },
+                                                                       { "data-autogreat-ddl-finder-replace", "#f_modelId" }
+                                                                      })
+    @Html.DropDownList("f_modelId", ViewBag.Models as SelectList, new Dictionary<string, Object> { { "class", "form-control" } })
+    <div class="col-md-10 text-center">
+
+        <p>Год производства</p>
+        <div class="col-md-12 slider" data-autogreat-slider-range="true" data-autogreat-slider-min="@autogreatsite_mvc45.Models.Finder.minYear" data-autogreat-slider-max="@autogreatsite_mvc45.Models.Finder.maxYear" data-autogreat-slider-min-edit="#f_minYear" data-autogreat-slider-max-edit="#f_maxYear"></div>
+        <br />
+        @Html.EditorFor(model => model.f_minYear)&nbsp;-&nbsp;@Html.EditorFor(model => model.f_maxYear)
+
+    </div>
+
+    <div class="col-md-10 text-center">
+
+        <p>Цена</p>
+        <div class="col-md-12 slider" data-autogreat-slider-range="true" data-autogreat-slider-min="@autogreatsite_mvc45.Models.Finder.minPrice" data-autogreat-slider-max="@autogreatsite_mvc45.Models.Finder.maxPrice" data-autogreat-slider-min-edit="#f_minPrice" data-autogreat-slider-max-edit="#f_maxPrice"></div>
+        <br />
+        @Html.EditorFor(model => model.f_minPrice)&nbsp;-&nbsp;@Html.EditorFor(model => model.f_maxPrice)
+
+    </div>
+    <input type="submit" value="Поиск" class="btn btn-default " />
+
+</form>

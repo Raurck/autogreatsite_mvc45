@@ -9,7 +9,7 @@ namespace autogreatsite_mvc45.Models
     public class CarContext: DbContext
     {
         public DbSet<Car> Cars { get; set; }
-        public DbSet<CarModel> CarModels { get; set; }
+        public DbSet<Model> CarModels { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Body> Bodys { get; set; }
         public DbSet<Drive> Drives { get; set; }

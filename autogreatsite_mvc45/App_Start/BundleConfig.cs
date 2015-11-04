@@ -10,6 +10,7 @@ namespace autogreatsite_mvc45
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/site.js",
                         "~/Scripts/fotorama.js"));
 
@@ -30,6 +31,7 @@ namespace autogreatsite_mvc45
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/themes/base/*.css",
                       "~/Content/site.css",
                       "~/Content/fotorama.css")
                       );

@@ -77,6 +77,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -246,6 +248,22 @@
     <Compile Include="Migration_Cars\201511011312024_cars2015-11-01-05.Designer.cs">
       <DependentUpon>201511011312024_cars2015-11-01-05.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migration_Cars\201511041357281_2015-11-04-01.cs" />
+    <Compile Include="Migration_Cars\201511041357281_2015-11-04-01.Designer.cs">
+      <DependentUpon>201511041357281_2015-11-04-01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511041433423_2015-11-04-02.cs" />
+    <Compile Include="Migration_Cars\201511041433423_2015-11-04-02.Designer.cs">
+      <DependentUpon>201511041433423_2015-11-04-02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511041640293_2015-11-04-03.cs" />
+    <Compile Include="Migration_Cars\201511041640293_2015-11-04-03.Designer.cs">
+      <DependentUpon>201511041640293_2015-11-04-03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migration_Cars\201511041757212_2015-11-04-04.cs" />
+    <Compile Include="Migration_Cars\201511041757212_2015-11-04-04.Designer.cs">
+      <DependentUpon>201511041757212_2015-11-04-04.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migration_Cars\Configuration.cs" />
     <Compile Include="Migration_Identety\201510231613416_Start.cs" />
     <Compile Include="Migration_Identety\201510231613416_Start.Designer.cs">
@@ -253,23 +271,49 @@
     </Compile>
     <Compile Include="Migration_Identety\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Body.cs" />
+    <Compile Include="Models\Body.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BodyDTO.cs" />
+    <Compile Include="Models\Brand.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Car.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Drive.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DriveDTO.cs" />
+    <Compile Include="Models\Engine.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ExtensionMethods.cs" />
+    <Compile Include="Models\Features.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileUploadJsonResult.cs" />
+    <Compile Include="Models\ModelDTO.cs" />
     <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\BrandDTO.cs" />
-    <Compile Include="Models\Brand.cs" />
     <Compile Include="Models\CarDTO.cs" />
-    <Compile Include="Models\Car.cs" />
     <Compile Include="Models\CarContext.cs" />
-    <Compile Include="Models\Drive.cs" />
-    <Compile Include="Models\Engine.cs" />
-    <Compile Include="Models\Features.cs" />
     <Compile Include="Models\Finder.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Photo.cs" />
-    <Compile Include="Models\Rudder.cs" />
+    <Compile Include="Models\Photo.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rudder.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RudderDTO.cs" />
     <Compile Include="Models\SampleCars.cs" />
-    <Compile Include="Models\Transmission.cs" />
+    <Compile Include="Models\Transmission.cs">
+      <DependentUpon>CarContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransmissionDTO.cs" />
+    <Compile Include="Models\UploadedDocuments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -318,6 +362,7 @@
     <Content Include="Content\Images\brands\ssangyong.png" />
     <Content Include="Content\Images\brands\subaru.png" />
     <Content Include="Content\Images\brands\toyota.png" />
+    <Content Include="Content\Images\brands\UAZ.png" />
     <Content Include="Content\Images\brands\volvo.png" />
     <Content Include="Content\Images\brands\vw.png" />
     <Content Include="Content\Images\jbt_slide1.jpg" />
@@ -332,6 +377,69 @@
     <Content Include="Content\Photo\dfbc7869-2f9c-410a-ba72-9274896f682b.JPG" />
     <Content Include="Content\Photo\e4688052-7687-4292-8d0c-91b365535b2d.jpg" />
     <Content Include="Content\Photo\fe022df9-9384-4a7a-b773-1f06203ab144.JPG" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_flat_30_cccccc_40x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_flat_50_5c5c5c_40x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_glass_20_555555_1x400.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_glass_40_0078a3_1x400.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_glass_40_ffc73d_1x400.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_gloss-wave_25_333333_500x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_highlight-soft_80_eeeeee_1x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_inset-soft_25_000000_1x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-bg_inset-soft_30_f58400_1x100.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_4b8e0b_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_a83300_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_cccccc_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\themes\ui-darkness\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\themes\ui-darkness\jquery-ui-1.8.23.custom.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.all.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.base.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.button.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.core.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.slider.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\ui-darkness\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -339,7 +447,6 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="Models\ClassDiagram1.cd" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -347,11 +454,15 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\Fonts\Days.ttf" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Properties\PublishProfiles\autogreatsite.pubxml" />
+    <None Include="Properties\PublishProfiles\avtogreatsite.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fotorama.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
     <Content Include="Scripts\jquery.form.js" />
     <Content Include="Scripts\jquery.form.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -402,7 +513,6 @@
     <Content Include="Views\Cars\Delete.cshtml" />
     <Content Include="Views\Cars\Details.cshtml" />
     <Content Include="Views\Cars\Edit.cshtml" />
-    <Content Include="Views\Cars\Index.cshtml" />
     <Content Include="Views\Cars\Administrator\Index.cshtml" />
     <Content Include="Views\Roles\Administrator\Create.cshtml" />
     <Content Include="Views\Roles\Administrator\Index.cshtml" />
@@ -421,12 +531,17 @@
     <Content Include="Views\Shared\_Layout - Копировать.cshtml" />
     <Content Include="Views\Shared\_RolesPartial.cshtml" />
     <Content Include="Views\Finder\Index.cshtml" />
+    <Content Include="Views\Cars\_CarsList.cshtml" />
+    <Content Include="Views\Finder\_longView.cshtml" />
+    <Content Include="Views\Cars\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
@@ -467,9 +582,24 @@
     <EmbeddedResource Include="Migration_Cars\201511011312024_cars2015-11-01-05.resx">
       <DependentUpon>201511011312024_cars2015-11-01-05.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511041357281_2015-11-04-01.resx">
+      <DependentUpon>201511041357281_2015-11-04-01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511041433423_2015-11-04-02.resx">
+      <DependentUpon>201511041433423_2015-11-04-02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511041640293_2015-11-04-03.resx">
+      <DependentUpon>201511041640293_2015-11-04-03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migration_Cars\201511041757212_2015-11-04-04.resx">
+      <DependentUpon>201511041757212_2015-11-04-04.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migration_Identety\201510231613416_Start.resx">
       <DependentUpon>201510231613416_Start.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

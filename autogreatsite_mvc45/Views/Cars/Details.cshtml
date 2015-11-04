@@ -1,19 +1,19 @@
 ﻿@model autogreatsite_mvc45.Models.Car
 
 @{
-    ViewBag.Title = Html.DisplayFor(model => model.CarBrand.BrandName) + " " + Html.DisplayFor(model => model.ModelName.ModelName);
+    ViewBag.Title = Html.DisplayFor(model => model.CarModel.Brand.BrandName) + " " + Html.DisplayFor(model => model.CarModel.ModelName);
 }
 <h2 style="text-transform:uppercase">
-    @if (File.Exists(Server.MapPath("~/Content/Images/brands/" + Model.CarBrand.LogoName + ".png")))
+    @if (File.Exists(Server.MapPath("~/Content/Images/brands/" + Model.CarModel.Brand.LogoName + ".png")))
     {
-        <img src="@(String.Format("/Content/Images/brands/{0}.png", Model.CarBrand.LogoName))" height="50" />
+        <img src="@(String.Format("/Content/Images/brands/{0}.png", Model.CarModel.Brand.LogoName))" height="50" />
 
     }
-    else if (File.Exists(Server.MapPath("~/Content/Images/brands/" + Model.CarBrand.BrandName + ".png")))
+    else if (File.Exists(Server.MapPath("~/Content/Images/brands/" + Model.CarModel.Brand.BrandName + ".png")))
     {
-        <img src="@(String.Format("/Content/Images/brands/{0}.png", Model.CarBrand.BrandName))" height="50" />
+        <img src="@(String.Format("/Content/Images/brands/{0}.png", Model.CarModel.Brand.BrandName))" height="50" />
     }
-    @Html.DisplayFor(model => model.CarBrand.BrandName)&nbsp;@Html.DisplayFor(model => model.ModelName.ModelName)
+    @Html.DisplayFor(model => model.CarModel.Brand.BrandName)&nbsp;@Html.DisplayFor(model => model.CarModel.ModelName)
 </h2>
 <div class="div-price">
     <span style="font-size:30pt">

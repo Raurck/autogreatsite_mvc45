@@ -14,12 +14,7 @@ namespace autogreatsite_mvc45.Models
         [DisplayName("Модель")]
         public int ModelId { get; set; }
         [DisplayName("Модель")]
-        public virtual CarModel ModelName { get; set; }
-
-        [DisplayName("Производитель")]
-        public int? BrandId { get; set; }
-        [DisplayName("Производитель")]
-        public virtual Brand CarBrand { get; set; }
+        public virtual Model CarModel { get; set; }
 
         [DisplayName("Пробег")]
         public int DistanceTraveled { get; set; }
@@ -69,7 +64,15 @@ namespace autogreatsite_mvc45.Models
         [DisplayName("Описание")]
         public string Description { get; set; }
 
-     
+        [DisplayName("Дата объявления")]
+        public DateTime? CatalogDate { get; set; }
+        [DisplayName("Дата подъема в списке продаж")]
+        public DateTime? RenewDate { get; set; }
+        [DisplayName("Дата обновления спецпредложения")]
+        public DateTime? SepcialDate { get; set; }
+        [DisplayName("Дата продажи")]
+        public DateTime? SellDate { get; set; }
+
         private List<Photo> _CarPhoto;
         [DisplayName("Фотографии")]
         public virtual List<Photo> CarPhoto { get

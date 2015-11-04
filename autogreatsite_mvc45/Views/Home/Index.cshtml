@@ -13,9 +13,6 @@
             <div class="container">
                 <div class="carousel-caption">
                     <p style="color:mediumaquamarine">
-                        <a asp-controller="Home" asp-action="Contact" class="btn btn-default btn-default">
-                                Контакты
-                            </a>
 </p>
                 </div>
             </div>
@@ -25,10 +22,6 @@
             <div class="container">
                 <div class="carousel-caption">
                     <p>
-                        
-                        <a asp-controller="Home" asp-action="TradeIn" class="btn btn-default btn-default">
-                            Подробнее
-                        </a>
                     </p>
                 </div>
             </div>
@@ -38,7 +31,7 @@
 
 <div class="row">
     <div class="col-md-3">
-        @Html.Action("Index", "Finder");
+        @Html.Action("Index", "Finder")
     </div>
     <div class="col-md-3">
         <h2>Новые поступления</h2>
