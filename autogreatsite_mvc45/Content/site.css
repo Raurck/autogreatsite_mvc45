@@ -62,6 +62,76 @@ a.seller-phone:visited{
     font-family:Tahoma;
 }
 
+.btn-vk {
+  color: #FFFFFF;
+  background-color: #2B587A;
+  border-color: #5B7FA6;
+}
+.btn-vk:focus,
+.btn-vk.focus {
+  color: #FFFFFF;
+  background-color: #2B587A;
+  border-color: #c30707;
+}
+.btn-vk:hover {
+  color: #FFFFFF;
+  background-color: #2B587A;
+  border-color: #c30707;
+}
+.btn-vk:active,
+.btn-vk.active,
+.open > .dropdown-toggle.btn-vk {
+  color: #FFFFFF;
+  background-color: #2B587A;
+  border-color: #adadad;
+}
+.btn-vk:active:hover,
+.btn-vk.active:hover,
+.open > .dropdown-toggle.btn-vk:hover,
+.btn-vk:active:focus,
+.btn-vk.active:focus,
+.open > .dropdown-toggle.btn-vk:focus,
+.btn-vk:active.focus,
+.btn-vk.active.focus,
+.open > .dropdown-toggle.btn-vk.focus {
+  color: #FFFFFF;
+  background-color: #2B587A;
+  border-color: #8c8c8c;
+}
+.btn-vk:active,
+.btn-vk.active,
+.open > .dropdown-toggle.btn-vk {
+  background-image: none;
+}
+.btn-vk.disabled,
+.btn-vk[disabled],
+fieldset[disabled] .btn-vk,
+.btn-vk.disabled:hover,
+.btn-vk[disabled]:hover,
+fieldset[disabled] .btn-vk:hover,
+.btn-vk.disabled:focus,
+.btn-vk[disabled]:focus,
+fieldset[disabled] .btn-vk:focus,
+.btn-vk.disabled.focus,
+.btn-vk[disabled].focus,
+fieldset[disabled] .btn-vk.focus,
+.btn-vk.disabled:active,
+.btn-vk[disabled]:active,
+fieldset[disabled] .btn-vk:active,
+.btn-vk.disabled.active,
+.btn-vk[disabled].active,
+fieldset[disabled] .btn-vk.active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.btn-vk .badge {
+  color: #fff;
+  background-color: #333;
+}
+
+
+
+
 .header-text{
     font-size:25px;
     font-family:Tahoma;

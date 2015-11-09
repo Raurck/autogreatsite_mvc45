@@ -13,7 +13,7 @@
             <div class="container">
                 <div class="carousel-caption">
                     <p style="color:mediumaquamarine">
-</p>
+                    </p>
                 </div>
             </div>
         </div>
@@ -41,14 +41,18 @@
             <li><a asp-controller="Home" asp-action="TradeIn">Машина 3</a></li>
         </ul>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 text-center">
         <h2>Интересное в сети</h2>
-        <ul>
-            <li><a asp-controller="Home" asp-action="Contact">Конаткты</a></li>
-            <li><a asp-controller="Home" asp-action="Contact">Где мы?</a></li>
-            <li><a asp-controller="Home" asp-action="Contact">Как позвонить</a></li>
-        </ul>
-    </div>
+        <a class="inactive" href="http://vk.com/avtosalesekb">
+            <img src="~/Content/Images/vk-link.png" class="img-responsive" alt="Мы вКонтакте" />
+        </a>
+        <!-- VK Widget -->
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div id="vk_groups"></div>
+            </div>
+        </div>
+        </div>
     <div class="col-md-3">
         <h2>Акции</h2>
         <ul>
@@ -59,3 +63,10 @@
         </ul>
     </div>
 </div>
+
+@section scripts{
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?120"></script>
+    <script type="text/javascript">
+        VK.Widgets.Group("vk_groups", { mode: 1, width: "220", height: "400", color1: 'FFFFFF', color2: '2B587A', color3: '5B7FA6' }, 70374365);
+    </script>
+}
