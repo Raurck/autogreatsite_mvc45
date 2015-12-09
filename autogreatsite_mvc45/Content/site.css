@@ -149,6 +149,11 @@ padding-left: 10px;
 color: black;
 }
 
+.div-car-info-title {
+  background: transparent linear-gradient(to bottom, #808080, #C0C0C0, #D3D3D3, #FFF, #C0C0C0, #808080) repeat scroll 0 0 !important;
+  color: black;
+}
+
 .div-phone-order {
     background: transparent linear-gradient(to bottom, #ff0000, #d30b0b, #7d0505, #420303, #fb0303) repeat scroll 0 0 !important;
 border-top-left-radius: 10px;

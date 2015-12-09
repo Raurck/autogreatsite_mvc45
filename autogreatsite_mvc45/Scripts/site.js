@@ -1,8 +1,14 @@
 ﻿$(document).ready(function () {
-    $('ul.nav.navbar-nav').find('a[href="' + location.pathname + '"]')
-        .closest('li').siblings().removeClass('active');
-    $('ul.nav.navbar-nav').find('a[href="' + location.pathname + '"]')
-        .closest('li').addClass('active');
+    var arrayOfStrings = location.pathname.split("/");
+    var path = String.concat("/",arrayOfStrings[1]);
+    if (path != "/Cars") {
+        for (var i = 2; i < arrayOfStrings.length; i++) {
+            path = path.concat("/", arrayOfStrings[i]);
+        }
+    }
+    var $navLnk = $('ul.nav.navbar-nav').find('a[href="' + path + '"]')
+    $navLnk.closest('li').siblings().removeClass('active');
+    $navLnk.closest('li').addClass('active');
 });
 
 $(document).ready(function () {

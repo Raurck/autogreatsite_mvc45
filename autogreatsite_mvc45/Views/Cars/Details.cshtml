@@ -29,27 +29,26 @@
         {
 
             <div class="fotorama" data-nav="thumbs"
-                     data-width="100%"
-                     data-ratio="700/500"
-                     data-minwidth="400"
-                     data-maxwidth="640"
-                     data-minheight="300"
-                     data-maxheight="100%"
-                      data-arrows="true"
-     data-click="true"
-     data-swipe="true"
-                 >
+                 data-width="100%"
+                 data-ratio="700/500"
+                 data-minwidth="400"
+                 data-maxwidth="640"
+                 data-minheight="300"
+                 data-maxheight="100%"
+                 data-arrows="true"
+                 data-click="true"
+                 data-swipe="true">
                 @foreach (var p in Model.CarPhoto)
                 {
 
-                <img src="@Url.Content(Path.Combine("~/Content/Photo",p.FileName))" alt="@p.FileName" / >
+                    <img src="@Url.Content(Path.Combine("~/Content/Photo",p.FileName))" alt="@p.FileName" / >
                 }
-                
+
             </div>
         }
         else
         {
-            <div class="text-center"style="margin-top:10px;">
+            <div class="text-center" style="margin-top:10px;">
                 <img src="~/Content/Images/photo.svg" class="img-thumbnail" width="300" />
             </div>
         }
@@ -136,7 +135,17 @@
         </table>
     </div>
 </div>
-<p>
-    @Html.ActionLink("Редактировать", "Edit", new { id = Model.CarId }) |
-    @Html.ActionLink("Список", "Index")
-</p>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading div-car-info-title">
+            <b>Об автомобиле</b>
+        </div>
+        <div class="panel-body">
+            @Html.DisplayFor(model => model.Description)
+        </div>
+    </div>
+</div>
+    <p>
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.CarId }) |
+        @Html.ActionLink("Список", "Index")
+    </p>
