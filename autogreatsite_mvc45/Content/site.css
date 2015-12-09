@@ -34,6 +34,11 @@ textarea {
 .navbar-brand-slim {
    padding: 0px;
 }
+.carousel-caption-back{
+   background-color:black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); /* For IE8 and earlier */
+}
 
 .tabledata-img img {
 max-height:50px;

@@ -63,33 +63,15 @@
                 <dd>@Html.DropDownList("f_transmission", ViewBag.Transmissons as SelectList, new Dictionary<string, Object> { { "class", "form-control" } })</dd>
             </dl>
 
+            <dl>
+                <dt>@Html.DisplayNameFor(model => model.f_Engine)</dt>
+                <dd>@Html.EditorFor(model => model.f_Engine)</dd>
+            </dl>
 
 
 
         </div>
 
-        <div class="col-md-4">
-            <dl>
-                <dt>@Html.DisplayNameFor(model => model.f_minDistance)</dt>
-                <dd>@Html.EditorFor(model => model.f_minDistance)</dd>
-            </dl>
-            <dl>
-                <dt>@Html.DisplayNameFor(model => model.f_maxDistance)</dt>
-                <dd>@Html.EditorFor(model => model.f_maxDistance)</dd>
-            </dl>
-            <dl>
-                <dt>@Html.DisplayNameFor(model => model.f_minEngine)</dt>
-                <dd>@Html.EditorFor(model => model.f_minEngine)</dd>
-            </dl>
-            <dl>
-                <dt>@Html.DisplayNameFor(model => model.f_maxEngine)</dt>
-                <dd>@Html.EditorFor(model => model.f_maxEngine)</dd>
-            </dl>
-            <dl>
-                <dt>@Html.DisplayNameFor(model => model.f_minDistance)</dt>
-                <dd>@Html.EditorFor(model => model.f_color)</dd>
-            </dl>
-        </div>
     </div>
     <div class="row text-center">
       <input type="submit" value="Поиск" class="btn btn-default " />

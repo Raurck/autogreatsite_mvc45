@@ -15,18 +15,13 @@
                     <img class="" src="~/Content/Images/logo_header.png" />
                 </a>
             </div>
+            <a href="@Url.Action("Contact","Home")" class="inactive">
             <div class="pull-right col-lg-8 col-md-8 header-text text-right">
                 <span class="glyphicon glyphicon-pushpin"></span>
                 <span><strong>Екатеринбург, ул. Автомагистральная, 12</strong></span><br />
-                <a href="tel:+7-908-630-0008" id="header_phone" class="inactive">
-                    <span class=" glyphicon glyphicon-phone"></span>
-                    <span>
-                        <strong>
-                            +7 908 630 00 08
-                        </strong>
-                    </span>
-                </a>
+                <span><strong>ежедневно, без выходных, с 10:00 до 20:00</strong></span>
             </div>
+                </a>
         </div>
     </div>
     <div class="navbar navbar-inverse">
@@ -43,7 +38,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                    <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
                     <li>@Html.ActionLink("Каталог", "Index", "Cars")</li>
                     <li>@Html.ActionLink("Кредит", "Credit", "Home")</li>
                     <li>@Html.ActionLink("Trade-in", "TradeIn", "Home")</li>
@@ -69,11 +64,11 @@
     </div>
 
 
-
+    @Scripts.Render("~/scripts/showads.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryajax")
-  
+
     @Styles.Render("~/Content/css")
 
     @RenderSection("scripts", required: false)

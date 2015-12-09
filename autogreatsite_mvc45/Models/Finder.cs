@@ -64,6 +64,9 @@ namespace autogreatsite_mvc45.Models
         [DisplayName("Пробег(max)")]
         public int f_maxDistance { get; set; }
 
+        [DisplayName("Двигатель")]
+        public int f_Engine { get; set; }
+
         [DisplayName("Двигатель(min)")]
         public int f_minEngine { get; set; }
         [DisplayName("Двигатель(max)")]

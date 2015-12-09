@@ -1,4 +1,17 @@
-﻿$(function () {
+﻿$(document).ready(function () {
+    $('ul.nav.navbar-nav').find('a[href="' + location.pathname + '"]')
+        .closest('li').siblings().removeClass('active');
+    $('ul.nav.navbar-nav').find('a[href="' + location.pathname + '"]')
+        .closest('li').addClass('active');
+});
+
+$(document).ready(function () {
+    if (window.canRunAds === true) {
+        $('.noadsbuffer').remove();
+    }
+});
+
+$(function () {
     var renewFinderContent = function () {
         var $sel = $(this);
         var option = {
@@ -13,6 +26,29 @@
     };
     $("select[data-autogreat-ddl-finder-ajax='true']").change(renewFinderContent);
 });
+$(function () {
+    var vkWidget = function () {
+        var option = {
+            url: "http://vk.com/widget_community.php",
+            method: "get",
+            data: {
+               gid:"70374365",
+               width:"200",
+               height:"220",
+               mode:"1"
+            }
+        };
+        $.ajax(option).done(function (data) {
+            var $target = $("#vk");
+            if ($target.length == 0) {
+                return;
+            }
+            $target.replaceWith(data);
+        });
+    };
+    vkWidget();
+});
+
 $(function () {
     var finderDoSerch = function () {
         var $form = $(this);
