@@ -134,6 +134,13 @@ fieldset[disabled] .btn-vk.active {
   background-color: #333;
 }
 
+.right-input {
+text-align:right;
+}
+
+.short-input{
+   max-width:85px;
+}
 .header-text{
     font-size:25px;
     font-family:Tahoma;

@@ -18,7 +18,7 @@
         <p>Год производства</p>
         <div class="col-md-12 slider" data-autogreat-slider-range="true" data-autogreat-slider-min="@autogreatsite_mvc45.Models.Finder.minYear" data-autogreat-slider-max="@autogreatsite_mvc45.Models.Finder.maxYear" data-autogreat-slider-min-edit="#f_minYear" data-autogreat-slider-max-edit="#f_maxYear"></div>
         <br />
-        @Html.EditorFor(model => model.f_minYear)&nbsp;-&nbsp;@Html.EditorFor(model => model.f_maxYear)
+        @Html.TextBoxFor(model => model.f_minYear, new { @class = "short-input  right-input" })&nbsp;-&nbsp;@Html.TextBoxFor(model => model.f_maxYear, new { @class = "short-input  right-input" })
 
     </div>
 
@@ -27,9 +27,9 @@
         <p>Цена</p>
         <div class="col-md-12 slider" data-autogreat-slider-range="true" data-autogreat-slider-min="@autogreatsite_mvc45.Models.Finder.minPrice" data-autogreat-slider-max="@autogreatsite_mvc45.Models.Finder.maxPrice" data-autogreat-slider-min-edit="#f_minPrice" data-autogreat-slider-max-edit="#f_maxPrice"></div>
         <br />
-        @Html.EditorFor(model => model.f_minPrice)&nbsp;-&nbsp;@Html.EditorFor(model => model.f_maxPrice)
-
+        @Html.TextBoxFor(model => model.f_minPrice, new { @class = "short-input  right-input" })&nbsp;-&nbsp;@Html.TextBoxFor(model => model.f_maxPrice, new { @class = "short-input  right-input" })
     </div>
-    <input type="submit" value="Поиск" class="btn btn-default " />
-
+    <div class="col-md-10 text-center" style="margin-top:7px;">
+        <input type="submit" value="Поиск" class="btn btn-default text-center" />
+</div>
 </form>
