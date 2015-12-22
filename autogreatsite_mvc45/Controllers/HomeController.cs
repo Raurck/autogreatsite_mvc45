@@ -39,6 +39,13 @@ namespace autogreatsite_mvc45.Controllers
             return View();
         }
 
+        public ActionResult Commision()
+        {
+            ViewData["Message"] = "";
+
+            return View();
+        }
+
         public ActionResult Buy()
         {
             ViewData["Message"] = "";

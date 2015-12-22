@@ -821,6 +821,7 @@
     <Content Include="Scripts\slick\fonts\slick.ttf" />
     <Content Include="Scripts\slick\fonts\slick.woff" />
     <Content Include="Views\Cars\Edit.cshtml" />
+    <Content Include="Views\Home\Commision.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
