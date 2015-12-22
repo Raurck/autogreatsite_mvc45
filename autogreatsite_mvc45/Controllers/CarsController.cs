@@ -98,7 +98,8 @@ namespace autogreatsite_mvc45.Controllers
         }
 
 
-        // GET: Cars/FileUpload
+        // POST: Cars/FileUpload
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [Route("FileUpload")]
         public void FileUpload()
