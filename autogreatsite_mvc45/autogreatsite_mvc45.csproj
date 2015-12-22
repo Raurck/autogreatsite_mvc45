@@ -325,59 +325,269 @@
     <Content Include="Content\fotorama%402x.png" />
     <Content Include="Content\fotorama.css" />
     <Content Include="Content\fotorama.png" />
-    <Content Include="Content\Images\arrow_blue_15.png" />
-    <Content Include="Content\Images\brands\alfa-romeo.png" />
-    <Content Include="Content\Images\brands\audi.png" />
-    <Content Include="Content\Images\brands\autovaz.png" />
-    <Content Include="Content\Images\brands\bmw.png" />
-    <Content Include="Content\Images\brands\chaevrolet.png" />
-    <Content Include="Content\Images\brands\Citroen.png" />
-    <Content Include="Content\Images\brands\ferrari.png" />
-    <Content Include="Content\Images\brands\fiat.png" />
-    <Content Include="Content\Images\brands\ford.png" />
-    <Content Include="Content\Images\brands\Geely.png" />
-    <Content Include="Content\Images\brands\greatwall.png" />
-    <Content Include="Content\Images\brands\honda.png" />
-    <Content Include="Content\Images\brands\hyundai.png" />
-    <Content Include="Content\Images\brands\infiniti.png" />
-    <Content Include="Content\Images\brands\jaguar.png" />
-    <Content Include="Content\Images\brands\jeep.png" />
-    <Content Include="Content\Images\brands\kia.png" />
-    <Content Include="Content\Images\brands\lancia.png" />
-    <Content Include="Content\Images\brands\land-rover.png" />
-    <Content Include="Content\Images\brands\lexus.png" />
-    <Content Include="Content\Images\brands\Lifan.png" />
-    <Content Include="Content\Images\brands\mazda.png" />
-    <Content Include="Content\Images\brands\mercedes.png" />
-    <Content Include="Content\Images\brands\mgcars.png" />
-    <Content Include="Content\Images\brands\mini.png" />
-    <Content Include="Content\Images\brands\mitsubishi.png" />
-    <Content Include="Content\Images\brands\nissan.png" />
-    <Content Include="Content\Images\brands\opel.png" />
-    <Content Include="Content\Images\brands\Peugeot.png" />
-    <Content Include="Content\Images\brands\porsche.png" />
-    <Content Include="Content\Images\brands\renault.png" />
-    <Content Include="Content\Images\brands\seat.png" />
-    <Content Include="Content\Images\brands\skoda.png" />
-    <Content Include="Content\Images\brands\ssangyong.png" />
-    <Content Include="Content\Images\brands\subaru.png" />
-    <Content Include="Content\Images\brands\toyota.png" />
-    <Content Include="Content\Images\brands\UAZ.png" />
-    <Content Include="Content\Images\brands\volvo.png" />
-    <Content Include="Content\Images\brands\vw.png" />
-    <Content Include="Content\Images\jbt_slide1.jpg" />
-    <Content Include="Content\Images\jbt_slide2.jpg" />
-    <Content Include="Content\Images\logo_header.png" />
-    <Content Include="Content\Images\photo.svg" />
-    <Content Include="Content\Images\vk-link.png" />
+    <Content Include="Content\Images\arrow_blue_15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\alfa-romeo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\audi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\autovaz.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\bmw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\chaevrolet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\Citroen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\ferrari.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\fiat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\ford.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\Geely.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\greatwall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\honda.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\hyundai.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\infiniti.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\jaguar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\jeep.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\kia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\lancia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\land-rover.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\lexus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\Lifan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\mazda.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\mercedes.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\mgcars.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\mini.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\mitsubishi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\nissan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\opel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\Peugeot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\porsche.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\renault.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\seat.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\skoda.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\ssangyong.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\subaru.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\toyota.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\UAZ.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\volvo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\brands\vw.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\jbt_slide1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\jbt_slide2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\line.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\logo_header.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Images\photo.png" />
+    <Content Include="Content\Images\photo_tmb.png" />
+    <Content Include="Content\Images\vk-link.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Photo\06c45006-c3c7-49ab-b159-7e43387cff18.jpg" />
+    <Content Include="Content\Photo\081a5f6d-320b-432b-a823-d0956f223a94.jpg" />
+    <Content Include="Content\Photo\14772a4a-f66d-41d8-9f47-395523ca88ec.jpg" />
+    <Content Include="Content\Photo\176ff4c1-1a93-4b9a-8130-8f179b10a593.jpg" />
+    <Content Include="Content\Photo\18d3b9b0-4f13-4cc4-bf69-fad4edcd758d.jpg" />
+    <Content Include="Content\Photo\191421fd-ad61-4ebd-a5d9-e60476b69611.jpg" />
+    <Content Include="Content\Photo\1b13873f-0d1b-4841-9b7d-315829c56fac.jpg" />
+    <Content Include="Content\Photo\1f4eba21-39ba-4a17-a2a5-8845be2de82f.jpg" />
+    <Content Include="Content\Photo\1fb77fc1-b8a9-4bce-906a-535ff5aa161c.jpg" />
+    <Content Include="Content\Photo\22cb3c07-cfe3-43df-bc0c-8cfd377fc449.jpg" />
+    <Content Include="Content\Photo\262c5370-1f6a-44bc-a67c-92aac66ddf47.jpg" />
+    <Content Include="Content\Photo\274733cc-5913-4af9-ae94-b4cbcfb6ca90.jpg" />
+    <Content Include="Content\Photo\2b53ba7c-f22a-4750-8433-648acf144787.jpg" />
     <Content Include="Content\Photo\2b78bec7-34d0-4787-ba74-c6eb10b340b2.jpg" />
+    <Content Include="Content\Photo\2f9ae581-dc3c-40ab-be7a-b02ca80f26b5.jpg" />
+    <Content Include="Content\Photo\36ec6693-74cb-4db3-90ca-64913abab6be.jpg" />
+    <Content Include="Content\Photo\3f9ab953-8f4d-4898-943a-f4f5264b5303.jpg" />
+    <Content Include="Content\Photo\3fd0410a-e544-48e0-89c9-336c4bbc4e6a.jpg" />
+    <Content Include="Content\Photo\40cb2479-6598-49e9-bcd2-ba1f4b34a8de.jpg" />
+    <Content Include="Content\Photo\45d902ce-d53a-4472-b5c2-6a12d35e7c9d.jpg" />
     <Content Include="Content\Photo\4c98a49a-edc6-4b28-8424-ea3bd7ba6e50.jpg" />
+    <Content Include="Content\Photo\52042462-1fd9-4a6d-8e29-6753d317b948.jpg" />
     <Content Include="Content\Photo\5a31e2ab-2ccf-4e45-acab-62914adda99a.JPG" />
+    <Content Include="Content\Photo\5b6ac7e7-6002-4b30-8d49-4ebc92866692.jpg" />
+    <Content Include="Content\Photo\5e774e05-44a0-422b-a00f-3996b6b3ab45.jpg" />
+    <Content Include="Content\Photo\5f78aafc-b924-42cd-a55f-bc9239dff11b.jpg" />
+    <Content Include="Content\Photo\6140cbc9-cfc3-41e4-b4f0-6a152730a459.jpg" />
     <Content Include="Content\Photo\63c5f171-334d-4bee-a1f3-374d439fe7e9.JPG" />
+    <Content Include="Content\Photo\6538a97d-133c-4f8b-ab16-0f3f95c30436.jpg" />
+    <Content Include="Content\Photo\6ae9c9f6-a0ed-449a-8a6c-997ce52876dc.jpg" />
+    <Content Include="Content\Photo\77cce11f-3400-4d2d-a8c4-2d59c679e57f.jpg" />
+    <Content Include="Content\Photo\863919a6-3084-43ba-a1ab-0365cb10a062.jpg" />
+    <Content Include="Content\Photo\9294b44e-42a6-4240-992c-22a8c1fe0bb6.jpg" />
+    <Content Include="Content\Photo\9329eb55-54dc-4b5d-a6e7-8d19e4a53aef.jpg" />
+    <Content Include="Content\Photo\94e07c5c-fa9e-408c-bb2f-74946e525fcb.jpg" />
+    <Content Include="Content\Photo\950fbb47-85c7-4323-b615-05f9444c7ee7.jpg" />
+    <Content Include="Content\Photo\9789f9ad-610e-4871-b9a2-be4a6017adac.jpg" />
+    <Content Include="Content\Photo\9999a0cd-35dc-4f1b-b825-3e3522a36760.jpg" />
+    <Content Include="Content\Photo\9f2cd6a6-0d1b-413c-bf91-cc9d4eb65cd1.jpg" />
+    <Content Include="Content\Photo\a5bf3128-0d33-4752-92ef-966294f5e05a.jpg" />
+    <Content Include="Content\Photo\a60f0f51-0ec2-4c24-91a6-65f45888a0f2.jpg" />
+    <Content Include="Content\Photo\af28edff-4463-429e-b716-939a19882eb3.jpg" />
+    <Content Include="Content\Photo\b08cc04c-94ac-42a3-81ae-47d24b956d88.jpg" />
+    <Content Include="Content\Photo\b153d914-e28e-47e3-aeda-7095bf77f465.jpg" />
+    <Content Include="Content\Photo\b1a65456-bf13-4356-a717-0b8815d39103.jpg" />
+    <Content Include="Content\Photo\b2a616fd-99be-41e4-8a6b-74b1576bc6c7.jpg" />
+    <Content Include="Content\Photo\b51f7e76-3227-487d-a01c-a2540f887550.jpg" />
+    <Content Include="Content\Photo\b949739c-2cec-4f25-8dcd-f790bedfc25a.jpg" />
     <Content Include="Content\Photo\ba308cdc-b09d-40e0-a676-f78765892549.jpg" />
+    <Content Include="Content\Photo\ba9f4c95-9ae1-4ca6-ac4b-b86d926588fb.jpg" />
+    <Content Include="Content\Photo\c0eb929d-6c87-4cbe-a2d5-af3b04a94754.jpg" />
+    <Content Include="Content\Photo\c91239e2-56be-431d-a525-79eb7e29b5ab.jpg" />
+    <Content Include="Content\Photo\d30d6714-3b53-42c9-9b45-e5f2b10c1bdd.jpg" />
+    <Content Include="Content\Photo\d751e326-8fcf-4e39-b205-e256047e4916.jpg" />
     <Content Include="Content\Photo\dfbc7869-2f9c-410a-ba72-9274896f682b.JPG" />
     <Content Include="Content\Photo\e4688052-7687-4292-8d0c-91b365535b2d.jpg" />
+    <Content Include="Content\Photo\e885e160-f50e-41f9-8e99-5fde14ab9efc.jpg" />
+    <Content Include="Content\Photo\e91bcb15-4dfe-475a-a82e-ff7d6af15173.jpg" />
+    <Content Include="Content\Photo\ef4a6728-e96a-42f3-a2fc-7b69f272ffca.jpg" />
+    <Content Include="Content\Photo\f0321172-123e-47d1-9a44-40c345774db9.jpg" />
+    <Content Include="Content\Photo\fa96f511-6948-4bf7-85ae-9d3061148ba6.jpg" />
     <Content Include="Content\Photo\fe022df9-9384-4a7a-b773-1f06203ab144.JPG" />
+    <Content Include="Content\Photo\ff537535-c036-4daf-bf0a-9c90ef0bd527.jpg" />
+    <Content Include="Content\Photo\tmb\06c45006-c3c7-49ab-b159-7e43387cff18.jpg" />
+    <Content Include="Content\Photo\tmb\081a5f6d-320b-432b-a823-d0956f223a94.jpg" />
+    <Content Include="Content\Photo\tmb\14772a4a-f66d-41d8-9f47-395523ca88ec.jpg" />
+    <Content Include="Content\Photo\tmb\176ff4c1-1a93-4b9a-8130-8f179b10a593.jpg" />
+    <Content Include="Content\Photo\tmb\18d3b9b0-4f13-4cc4-bf69-fad4edcd758d.jpg" />
+    <Content Include="Content\Photo\tmb\191421fd-ad61-4ebd-a5d9-e60476b69611.jpg" />
+    <Content Include="Content\Photo\tmb\1b13873f-0d1b-4841-9b7d-315829c56fac.jpg" />
+    <Content Include="Content\Photo\tmb\1f4eba21-39ba-4a17-a2a5-8845be2de82f.jpg" />
+    <Content Include="Content\Photo\tmb\1fb77fc1-b8a9-4bce-906a-535ff5aa161c.jpg" />
+    <Content Include="Content\Photo\tmb\22cb3c07-cfe3-43df-bc0c-8cfd377fc449.jpg" />
+    <Content Include="Content\Photo\tmb\262c5370-1f6a-44bc-a67c-92aac66ddf47.jpg" />
+    <Content Include="Content\Photo\tmb\274733cc-5913-4af9-ae94-b4cbcfb6ca90.jpg" />
+    <Content Include="Content\Photo\tmb\2b53ba7c-f22a-4750-8433-648acf144787.jpg" />
+    <Content Include="Content\Photo\tmb\2b78bec7-34d0-4787-ba74-c6eb10b340b2.jpg" />
+    <Content Include="Content\Photo\tmb\2f9ae581-dc3c-40ab-be7a-b02ca80f26b5.jpg" />
+    <Content Include="Content\Photo\tmb\36ec6693-74cb-4db3-90ca-64913abab6be.jpg" />
+    <Content Include="Content\Photo\tmb\3f9ab953-8f4d-4898-943a-f4f5264b5303.jpg" />
+    <Content Include="Content\Photo\tmb\3fd0410a-e544-48e0-89c9-336c4bbc4e6a.jpg" />
+    <Content Include="Content\Photo\tmb\40cb2479-6598-49e9-bcd2-ba1f4b34a8de.jpg" />
+    <Content Include="Content\Photo\tmb\45d902ce-d53a-4472-b5c2-6a12d35e7c9d.jpg" />
+    <Content Include="Content\Photo\tmb\4c98a49a-edc6-4b28-8424-ea3bd7ba6e50.jpg" />
+    <Content Include="Content\Photo\tmb\52042462-1fd9-4a6d-8e29-6753d317b948.jpg" />
+    <Content Include="Content\Photo\tmb\5a31e2ab-2ccf-4e45-acab-62914adda99a.jpg" />
+    <Content Include="Content\Photo\tmb\5b6ac7e7-6002-4b30-8d49-4ebc92866692.jpg" />
+    <Content Include="Content\Photo\tmb\5e774e05-44a0-422b-a00f-3996b6b3ab45.jpg" />
+    <Content Include="Content\Photo\tmb\5f78aafc-b924-42cd-a55f-bc9239dff11b.jpg" />
+    <Content Include="Content\Photo\tmb\6140cbc9-cfc3-41e4-b4f0-6a152730a459.jpg" />
+    <Content Include="Content\Photo\tmb\63c5f171-334d-4bee-a1f3-374d439fe7e9.jpg" />
+    <Content Include="Content\Photo\tmb\6538a97d-133c-4f8b-ab16-0f3f95c30436.jpg" />
+    <Content Include="Content\Photo\tmb\6ae9c9f6-a0ed-449a-8a6c-997ce52876dc.jpg" />
+    <Content Include="Content\Photo\tmb\77cce11f-3400-4d2d-a8c4-2d59c679e57f.jpg" />
+    <Content Include="Content\Photo\tmb\863919a6-3084-43ba-a1ab-0365cb10a062.jpg" />
+    <Content Include="Content\Photo\tmb\9294b44e-42a6-4240-992c-22a8c1fe0bb6.jpg" />
+    <Content Include="Content\Photo\tmb\9329eb55-54dc-4b5d-a6e7-8d19e4a53aef.jpg" />
+    <Content Include="Content\Photo\tmb\94e07c5c-fa9e-408c-bb2f-74946e525fcb.jpg" />
+    <Content Include="Content\Photo\tmb\950fbb47-85c7-4323-b615-05f9444c7ee7.jpg" />
+    <Content Include="Content\Photo\tmb\9789f9ad-610e-4871-b9a2-be4a6017adac.jpg" />
+    <Content Include="Content\Photo\tmb\9999a0cd-35dc-4f1b-b825-3e3522a36760.jpg" />
+    <Content Include="Content\Photo\tmb\9f2cd6a6-0d1b-413c-bf91-cc9d4eb65cd1.jpg" />
+    <Content Include="Content\Photo\tmb\a5bf3128-0d33-4752-92ef-966294f5e05a.jpg" />
+    <Content Include="Content\Photo\tmb\a60f0f51-0ec2-4c24-91a6-65f45888a0f2.jpg" />
+    <Content Include="Content\Photo\tmb\af28edff-4463-429e-b716-939a19882eb3.jpg" />
+    <Content Include="Content\Photo\tmb\b08cc04c-94ac-42a3-81ae-47d24b956d88.jpg" />
+    <Content Include="Content\Photo\tmb\b153d914-e28e-47e3-aeda-7095bf77f465.jpg" />
+    <Content Include="Content\Photo\tmb\b1a65456-bf13-4356-a717-0b8815d39103.jpg" />
+    <Content Include="Content\Photo\tmb\b2a616fd-99be-41e4-8a6b-74b1576bc6c7.jpg" />
+    <Content Include="Content\Photo\tmb\b51f7e76-3227-487d-a01c-a2540f887550.jpg" />
+    <Content Include="Content\Photo\tmb\b949739c-2cec-4f25-8dcd-f790bedfc25a.jpg" />
+    <Content Include="Content\Photo\tmb\ba308cdc-b09d-40e0-a676-f78765892549.jpg" />
+    <Content Include="Content\Photo\tmb\ba9f4c95-9ae1-4ca6-ac4b-b86d926588fb.jpg" />
+    <Content Include="Content\Photo\tmb\c0eb929d-6c87-4cbe-a2d5-af3b04a94754.jpg" />
+    <Content Include="Content\Photo\tmb\c91239e2-56be-431d-a525-79eb7e29b5ab.jpg" />
+    <Content Include="Content\Photo\tmb\d30d6714-3b53-42c9-9b45-e5f2b10c1bdd.jpg" />
+    <Content Include="Content\Photo\tmb\d751e326-8fcf-4e39-b205-e256047e4916.jpg" />
+    <Content Include="Content\Photo\tmb\dfbc7869-2f9c-410a-ba72-9274896f682b.jpg" />
+    <Content Include="Content\Photo\tmb\e4688052-7687-4292-8d0c-91b365535b2d.jpg" />
+    <Content Include="Content\Photo\tmb\e885e160-f50e-41f9-8e99-5fde14ab9efc.jpg" />
+    <Content Include="Content\Photo\tmb\e91bcb15-4dfe-475a-a82e-ff7d6af15173.jpg" />
+    <Content Include="Content\Photo\tmb\ef4a6728-e96a-42f3-a2fc-7b69f272ffca.jpg" />
+    <Content Include="Content\Photo\tmb\f0321172-123e-47d1-9a44-40c345774db9.jpg" />
+    <Content Include="Content\Photo\tmb\fa96f511-6948-4bf7-85ae-9d3061148ba6.jpg" />
+    <Content Include="Content\Photo\tmb\fe022df9-9384-4a7a-b773-1f06203ab144.jpg" />
+    <Content Include="Content\Photo\tmb\ff537535-c036-4daf-bf0a-9c90ef0bd527.jpg" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -442,24 +652,86 @@
     <Content Include="Content\themes\ui-darkness\jquery.ui.tabs.css" />
     <Content Include="Content\themes\ui-darkness\jquery.ui.theme.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\days-webfont.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\ft40-webfont.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\slick.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\Fonts\Days.ttf" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="fonts\slick.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\slick.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\slick.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\days-webfont.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\days-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\days-webfont.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\days-webfont.woff2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\ft40-webfont.eot">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\ft40-webfont.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\ft40-webfont.woff">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\ft40-webfont.woff2">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Photo\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\12.pubxml" />
     <None Include="Properties\PublishProfiles\autogreatsite.pubxml" />
     <None Include="Properties\PublishProfiles\avtogreatsite.pubxml" />
     <None Include="Properties\PublishProfiles\fozzy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\dropzone\basic.css" />
+    <Content Include="Scripts\dropzone\basic.min.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.css" />
+    <Content Include="Scripts\dropzone\dropzone.min.js" />
     <Content Include="Scripts\fotorama.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -477,6 +749,12 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\showads.js" />
     <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\slick\ajax-loader.gif" />
+    <Content Include="Scripts\slick\fonts\slick.svg" />
+    <Content Include="Scripts\slick\slick-theme.css" />
+    <Content Include="Scripts\slick\slick.css" />
+    <Content Include="Scripts\slick\slick.js" />
+    <Content Include="Scripts\slick\slick.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -515,28 +793,34 @@
     <Content Include="Views\Cars\Create.cshtml" />
     <Content Include="Views\Cars\Delete.cshtml" />
     <Content Include="Views\Cars\Details.cshtml" />
-    <Content Include="Views\Cars\Edit.cshtml" />
-    <Content Include="Views\Cars\Administrator\Index.cshtml" />
-    <Content Include="Views\Roles\Administrator\Create.cshtml" />
-    <Content Include="Views\Roles\Administrator\Index.cshtml" />
-    <Content Include="Views\Roles\Administrator\ManageUserRoles.cshtml" />
-    <Content Include="Views\Roles\Administrator\Edit.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\ManageUserRoles.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Home\Buy.cshtml" />
     <Content Include="Views\Home\Credit.cshtml" />
     <Content Include="Views\Home\Sell.cshtml" />
     <Content Include="Views\Home\TradeIn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Administrator\Index.cshtml" />
     <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\Upload\_UploadForm.cshtml" />
     <Content Include="Views\Upload\GetFileAsync.cshtml" />
     <Content Include="Views\Upload\_IndexMulti.cshtml" />
-    <Content Include="Views\Shared\_Layout - Копировать.cshtml" />
     <Content Include="Views\Shared\_RolesPartial.cshtml" />
     <Content Include="Views\Finder\Index.cshtml" />
     <Content Include="Views\Cars\_CarsList.cshtml" />
     <Content Include="Views\Finder\_longView.cshtml" />
     <Content Include="Views\Cars\Index.cshtml" />
+    <Content Include="Views\Cars\_NewestCars.cshtml" />
+    <Content Include="Scripts\slick\config.rb" />
+    <Content Include="Scripts\slick\slick-theme.less" />
+    <Content Include="Scripts\slick\slick-theme.scss" />
+    <Content Include="Scripts\slick\slick.less" />
+    <Content Include="Scripts\slick\slick.scss" />
+    <Content Include="Scripts\slick\fonts\slick.eot" />
+    <Content Include="Scripts\slick\fonts\slick.ttf" />
+    <Content Include="Scripts\slick\fonts\slick.woff" />
+    <Content Include="Views\Cars\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

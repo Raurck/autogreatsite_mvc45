@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace autogreatsite_mvc45.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     public class RolesController : Controller
     {
         ApplicationDbContext context = new ApplicationDbContext();

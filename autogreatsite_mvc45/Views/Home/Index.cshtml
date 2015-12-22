@@ -24,30 +24,69 @@
         </div>
     </div>
 </div>
+<div class="row avtogreat-row" style="margin-top:10px">
+    <div class="col-md-1 hidden-sm shortcut-div shortcut-div-empty"></div>
+    <a href="@Url.Action("Index","Cars")" class="shortcut-anchor">
+        <div class="col-md-2 shortcut-div shortcut-div-sell">
+            <div class="shortcut-text-header">Продажа</div>
+            <div class="shortcut-content-div">большой выбор автомобилей в нашем каталоге<br /> >> <br /> </div>
+        </div>
+    </a>
+    <a href="@Url.Action("Index","Cars")" class="shortcut-anchor">
+        <div class="col-md-2 shortcut-div shortcut-div-lombard">
+            <div class="shortcut-text-header">Автоломбард</div>
+            <div class="shortcut-content-div">у нас вы можете заложить свой автомобиль<br /> >> <br /> </div>
+        </div>
+    </a>
+    <a href="@Url.Action("Tradein","Home")" class="shortcut-anchor shortcut-anchor-tradein">
+        <div class="col-md-2 shortcut-div shortcut-div-tradein">
+            <div class="shortcut-text-header">TRADE-IN</div>
+            <div class="shortcut-content-div">о трейд ин<br /> >> <br /> </div>
+        </div>
+    </a>
+    <a href="@Url.Action("Credit","Home")"  class="shortcut-anchor ">
+        <div class="col-md-2 shortcut-div shortcut-div-credit">
+            <div class="shortcut-text-header">Кредитование</div>
+            <div class="shortcut-content-div">Мы продаем автомобили в кредит<br /> >> <br /> </div>
+        </div>
+    </a>
+    <a href="@Url.Action("Buy","Home")"  class="shortcut-anchor ">
+        <div class="col-md-2 shortcut-div shortcut-div-buy">
+            <div class="shortcut-text-header">Выкуп</div>
+            <div class="shortcut-content-div">Мы готовы выкупить Ваш автомобиль<br /> >> <br /> </div>
+        </div>
+    </a>
 
-<div class="row">
+</div>
+
+<div class="row avtogreat-row">
     <div class="col-md-3">
         @Html.Action("Index", "Finder")
     </div>
-    <div class="col-md-3">
-        <h2>Новые поступления</h2>
-        <ul>
-            <li><a asp-controller="Home" asp-action="TradeIn">Машина 1</a></li>
-            <li><a asp-controller="Home" asp-action="TradeIn">Машина 2</a></li>
-            <li><a asp-controller="Home" asp-action="TradeIn">Машина 3</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-            <h2>Интересное в сети</h2>
-            <a class="inactive noadsbuffer" href="http://vk.com/avtogreat">
-                <img src="~/Content/Images/vk-link.png" class="img-responsive img-rounded" alt="Мы вКонтакте" />
-            </a>
-            <!-- VK Widget $(vkWidget());-->
-                <div id="vk_groups"></div>
-
+    <div class="col-md-9">
+        <div id="NewestCars">
+            <div class="row text-center div-section-title avtogreat-text-days ">
+                Последние поступления
+            </div>
         </div>
+    </div>
+</div>
+<div class="row avtogreat-row">
     <div class="col-md-3">
-        <h2>Акции</h2>
+        <div class="row text-center div-section-title avtogreat-text-days ">
+            Интересное в сети
+        </div>
+        <a class="inactive noadsbuffer" href="http://vk.com/avtogreat">
+            <img src="~/Content/Images/vk-link.png" class="img-responsive img-rounded" alt="Мы вКонтакте" />
+        </a>
+        <!-- VK Widget $(vkWidget());-->
+        <div id="vk_groups"></div>
+
+    </div>
+    <div class="col-md-9">
+        <div class="row text-center div-section-title avtogreat-text-days ">
+            Акции
+        </div>
         <ul>
             <li><a asp-controller="Home" asp-action="Buy">Купим!</a></li>
             <li><a asp-controller="Home" asp-action="Buy">Быстро!</a></li>

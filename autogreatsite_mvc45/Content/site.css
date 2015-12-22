@@ -1,6 +1,33 @@
-﻿body {
+﻿
+@font-face {
+    font-family: 'days-regular';
+    src: url('/fonts/days-webfont.eot');
+    src: url('/fonts/days-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/days-webfont.woff2') format('woff2'),
+         url('/fonts/days-webfont.woff') format('woff'),
+         url('/fonts/days-webfont.ttf') format('truetype'),
+         url('/fonts/days-webfont.svg#daysregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'ft40-roman';
+    src: url('/fonts/ft40-webfont.eot');
+    src: url('/fonts/ft40-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/ft40-webfont.woff2') format('woff2'),
+         url('/fonts/ft40-webfont.woff') format('woff'),
+         url('/fonts/ft40-webfont.ttf') format('truetype'),
+         url('/fonts/ft40-webfont.svg#ft40roman') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
     padding-top: 0px;
     padding-bottom: 20px;
+    background: #EFEFED;
 }
 
 /* Wrapping element */
@@ -65,6 +92,97 @@ a.seller-phone:visited{
 .seller-phone-text{
     font-size:18px;
     font-family:Tahoma;
+}
+
+.avtogreat-text-days-red {
+    font-family:days-regular;
+    color: #e31E25;
+}
+
+.avtogreat-text-days {
+    font-family:days-regular;
+    margin-bottom:10px;
+}
+
+.avtogreat-text-ft40 {
+    font-family:ft40-roman;
+    margin-bottom:10px;
+}
+
+.avtogreat-row {
+ margin-bottom:10px;
+}
+
+.shortcut-anchor {
+
+}
+    .shortcut-anchor:hover,
+    .shortcut-anchor:visited
+    {
+        text-decoration:none;
+    }
+    .shortcut-anchor:hover .shortcut-div {
+      background: #EFEFED;
+    }
+.shortcut-anchor:hover .shortcut-content-div{
+  display: block;
+}
+
+.shortcut-div{
+    min-height:120px;
+    max-height:120px;
+    padding:10px 10px 10px 10px;
+    background: #EFEFED url("/Content/Images/line.png") no-repeat scroll 0 0 ;
+    transition: all 0.2s ease 0s;
+    border-right-color:#e95053;
+    border-right-style:solid;
+    border-right-width:1px;
+
+}
+
+.shortcut-div-empty {
+    background-position: center -760px;
+}
+
+.shortcut-div-sell {
+    background-position: center 0;
+}
+
+.shortcut-div-lombard {
+    background-position: center -140px;
+}
+
+.shortcut-div-tradein {
+    background-position: center -280px;
+}
+
+.shortcut-div-credit {
+    background-position: center -420px;
+}
+
+.shortcut-div-buy {
+    background-position: center -560px;
+}
+
+.shortcut-text-header{
+    font-family:days-regular;
+    color: #e31E25;
+    text-transform:uppercase;
+}
+
+.shortcut-content-div{
+    display: none;
+}
+
+
+.shortcut-div-last{
+    border-right-style:none;
+    border-right-width:0;
+}
+
+avtogreat-image-newest {
+ min-height:150px;
+ max-height:150px;
 }
 
 .btn-vk {
@@ -151,6 +269,23 @@ border-top-left-radius: 10px;
 border-bottom-left-radius: 2px;
 padding-left: 10px;
 color: black;
+}
+
+.div-slider {
+    max-width:290px;
+}
+
+.div-section-title {
+background: transparent linear-gradient(to bottom, #e95053,#e95053, #ec5A5F, #eF6165,  #e31E25,  #e31E25,  #e31E25,  #e31E25) repeat scroll 0 0 !important;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;
+border-top-right-radius:10px;
+border-bottom-right-radius:10px;
+margin-left:2px;
+margin-right:2px;
+padding-left: 10px;
+font-size:20px;
+color: white;
 }
 
 .div-car-info-title {

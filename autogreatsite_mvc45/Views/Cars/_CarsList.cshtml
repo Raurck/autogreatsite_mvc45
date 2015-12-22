@@ -49,24 +49,28 @@
                     <td>
                         @if (item.CarPhoto.Count > 0)
                 {
-                            <img src="~/Content/Images/photo.svg" width="20" height="20" />
+                            <img src="~/Content/Images/photo.png" width="20" height="20" />
                         }
                     </td>
                     <td width="50px">
-                        
-                            <div class="tabledata-img">@if (File.Exists(Server.MapPath("~/Content/Images/brands/" + item.CarModel.Brand.LogoName + ".png")))
+
+                        <div class="tabledata-img">
+                            @if (File.Exists(Server.MapPath("~/Content/Images/brands/" + item.CarModel.Brand.LogoName + ".png")))
                             {
-                                <img src="@(String.Format("/Content/Images/brands/{0}.png", item.CarModel.Brand.LogoName))"   />
+                                <img src="@(String.Format("/Content/Images/brands/{0}.png", item.CarModel.Brand.LogoName))" />
 
                             }
                             else if (File.Exists(Server.MapPath("~/Content/Images/brands/" + item.CarModel.Brand.BrandName + ".png")))
                             {
-                                <img src="@(String.Format("/Content/Images/brands/{0}.png", item.CarModel.Brand.BrandName))"  />
-                            }</div></td><td>
-                            @Html.DisplayFor(modelItem => item.CarModel.Brand.BrandName)<br />
-                            @Html.DisplayFor(modelItem => item.CarModel.ModelName)
-                      
-                        
+                                <img src="@(String.Format("/Content/Images/brands/{0}.png", item.CarModel.Brand.BrandName))" />
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CarModel.Brand.BrandName)<br />
+                        @Html.DisplayFor(modelItem => item.CarModel.ModelName)
+
+
 
                     </td>
                     <td>
@@ -95,12 +99,23 @@
                         @Html.DisplayFor(modelItem => item.CarColor)
                     </td>
 
-                    <td class="hidden-sm hidden-xs">
-                        @Html.ActionLink("Подробно", "Details", new { id = item.CarId })
-                    </td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <td class="hidden-sm hidden-xs">
+                            <a class="btn btn-warning avtogreat-text-ft40" href="@Url.Action("Edit","Cars", new { id = item.CarId })" role="button">Редактировать</a>
+                            <a class="btn btn-danger avtogreat-text-ft40" href="@Url.Action("Delete","Cars", new { id = item.CarId })" role="button">Удалить</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td class="hidden-sm hidden-xs">
+                            @Html.ActionLink("Подробно", "Details", new { id = item.CarId })
+                        </td>
+                    }
+
                 </tr>
 
             }
-        </tbody>
-    </table>
-</div>
+                </tbody>
+            </table>
+        </div>

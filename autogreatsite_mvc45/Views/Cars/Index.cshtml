@@ -4,15 +4,24 @@
 @{
     ViewBag.Title = "Наш каталог";
 }
-
-<h2>Наш каталог</h2>
-<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#fffinder">
-    Показать поиск
-</button>
-
-<div  id="fffinder" class="collapse in">
-    @Html.Action("Longview", "Finder")
+<div class="row">
+    <div class="col-lg-3 col-md-3">
+        @Html.Action("Longview", "Finder")
+    </div>
+    <div class="col-lg-9 col-md-9">
+        
+        <div class="row text-center div-section-title avtogreat-row avtogreat-text-ft40">
+            Наш каталог
+        </div>
+@if (User.IsInRole("Administrator"))
+{
+        <div class="row avtogreat-row">
+            <div class="col-lg-offset-5 col-md-offset-5 hidden-xs hidden-sm" />
+            <div class="col-lg-2 col-md-2">
+            <a class="btn btn-warning avtogreat-text-ft40" href="@Url.Action("Create", "Cars")" role="button">Новый автомобиль</a>
+            </div>
+        </div>
+}
+        @Html.Partial("_CarsList", Model)
+    </div>
 </div>
-
-
-    @Html.Partial("_CarsList", Model)

@@ -8,23 +8,25 @@
         <meta name="description" content="The description of my page" />
 </head>
 <body>
-    <div class="container body-content">
-        <div class="row hidden-xs hidden-sm">
-            <div class="pull-left col-lg-4 col-md-4">
-                <a href="@Url.Action("Index","Home")" class="">
-                    <img class="" src="~/Content/Images/logo_header.png" />
+    <div class="row" style="background-color:white;">
+        <div class="container body-content">
+            <div class="row hidden-xs hidden-sm">
+                <div class="pull-left col-lg-4 col-md-4">
+                    <a href="@Url.Action("Index","Home")" class="">
+                        <img class="" src="~/Content/Images/logo_header.png" />
+                    </a>
+                </div>
+                <a href="@Url.Action("Contact","Home")" class="inactive">
+                    <div class="pull-right col-lg-8 col-md-8 header-text text-right">
+                        <span class="glyphicon glyphicon-pushpin"></span>
+                        <span><strong>Екатеринбург, ул. Автомагистральная, 12</strong></span><br />
+                        <span><strong>с 10:00 до 20:00, без выходных</strong></span>
+                    </div>
                 </a>
             </div>
-            <a href="@Url.Action("Contact","Home")" class="inactive">
-            <div class="pull-right col-lg-8 col-md-8 header-text text-right">
-                <span class="glyphicon glyphicon-pushpin"></span>
-                <span><strong>Екатеринбург, ул. Автомагистральная, 12</strong></span><br />
-                <span><strong>ежедневно, без выходных, с 10:00 до 20:00</strong></span>
-            </div>
-                </a>
         </div>
     </div>
-    <div class="navbar navbar-inverse">
+    <div class="navbar navbar-inverse avtogreat-text-days">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -37,6 +39,7 @@
                 </div>
             </div>
             <div class="navbar-collapse collapse">
+
                 <ul class="nav navbar-nav">
                     <li class="active">@Html.ActionLink("Главная", "Index", "Home")</li>
                     <li>@Html.ActionLink("Каталог", "Index", "Cars")</li>
@@ -45,10 +48,14 @@
                     <li>@Html.ActionLink("Выкуп", "Buy", "Home")</li>
                     <li>@Html.ActionLink("О нас", "About", "Home")</li>
                     <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
-                    <li class="partialContent" data-url="Roles/RoleMenuItem">...</li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li>@Html.ActionLink("Роли", "Index", "Roles")</li>
+                    }
                 </ul>
 
                 @Html.Partial("_LoginPartial")
+
             </div>
         </div>
     </div>
@@ -64,12 +71,17 @@
     </div>
 
 
+    
     @Scripts.Render("~/scripts/showads.js")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryajax")
 
     @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/dropzonejs");
+    @Styles.Render("~/bundles/dropzonecss");
+
 
     @RenderSection("scripts", required: false)
 

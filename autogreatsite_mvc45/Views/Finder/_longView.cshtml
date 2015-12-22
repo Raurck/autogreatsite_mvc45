@@ -5,10 +5,9 @@
 }
 
 <form action="@Url.Action("")" method="post" data-autogreat-finder="true" data-autogreat-finder-replace="#searchResultSection">
-
-    <div class="row">
-
-        <div class="col-md-4">
+    <div class="row text-center div-section-title">
+        Подобрать автомобиль
+    </div>
             <dl>
                 <dt>@Html.DisplayNameFor(model => model.f_brandId)</dt>
                 <dd>@Html.DropDownList("f_brandId", ViewBag.Brands as SelectList, new Dictionary<string, Object> { { "class", "form-control" }, { "data-autogreat-ddl-finder-ajax", "true" }, { "data-autogreat-ddl-finder-action", "Finder/RenewModels/" }, { "data-autogreat-ddl-finder-replace", "#f_modelId" } })</dd>
@@ -18,7 +17,7 @@
                 <dd>@Html.DropDownList("f_modelId", ViewBag.Models as SelectList, new Dictionary<string, Object> { { "class", "form-control" } })</dd>
             </dl>
 
-            <div class="col-md-10 text-center">
+            <div class="div-slider text-center">
 
                 <p>Год производства</p>
                 <div class="col-md-12 slider" data-autogreat-slider-range="true" data-autogreat-slider-min="@autogreatsite_mvc45.Models.Finder.minYear" data-autogreat-slider-max="@autogreatsite_mvc45.Models.Finder.maxYear" data-autogreat-slider-min-edit="#f_minYear" data-autogreat-slider-max-edit="#f_maxYear"></div>
@@ -27,26 +26,14 @@
                 
             </div>
 
-            <div class="col-md-10 text-center">
+            <div class="div-slider text-center">
 
                     <p>Цена</p>
                     <div class="col-md-12 slider" data-autogreat-slider-range="true" data-autogreat-slider-min="@autogreatsite_mvc45.Models.Finder.minPrice" data-autogreat-slider-max="@autogreatsite_mvc45.Models.Finder.maxPrice" data-autogreat-slider-min-edit="#f_minPrice" data-autogreat-slider-max-edit="#f_maxPrice"></div>
                     <br />
                 @Html.TextBoxFor(model => model.f_minPrice, new { @class = "short-input  right-input" })&nbsp;-&nbsp;@Html.TextBoxFor(model => model.f_maxPrice, new { @class = "short-input  right-input" })
                 
-
             </div>
-
-
-
-
-
-
-
-
-
-        </div>
-        <div class="col-md-4">
             <dl>
                 <dt>@Html.DisplayNameFor(model => model.f_bodyType)</dt>
                 <dd>@Html.DropDownList("f_bodyType", ViewBag.Bodys as SelectList, new Dictionary<string, Object> { { "class", "form-control" } })</dd>
@@ -71,10 +58,7 @@
 
 
 
-        </div>
-
-    </div>
-    <div class="row text-center">
+    <div class="text-center">
       <input type="submit" value="Поиск" class="btn btn-default " />
     </div>
 

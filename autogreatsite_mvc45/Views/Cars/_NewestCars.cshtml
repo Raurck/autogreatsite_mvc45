@@ -1,0 +1,38 @@
+﻿@model IEnumerable<autogreatsite_mvc45.Models.Car>
+
+<div class="row text-center div-section-title avtogreat-text-days">
+    Последние поступления
+</div>
+<p></p>
+<div class="slick-newestCars">
+
+    @foreach (var item in Model)
+    {
+
+            <div class="col-lg-3 col-md-3">
+                <a href="@Url.Action("Details", new { id = item.CarId })" class="inactive">
+                    <div class="row avtogreat-row">
+
+                        @if (item.CarPhoto.Count > 0)
+                {
+
+                            <img class="center-block avtogreat-image-newest" src="@Url.Content(Path.Combine("~/Content/Photo/tmb", item.CarPhoto[0].FileName))" alt="@item.CarPhoto[0].FileName" />
+
+                        }
+                        else
+                        {
+                            <img class="center-block avtogreat-image-newest" src="~/Content/Images/photo_tmb.png" />
+                        }
+                    </div>
+                    <div class="row avtogreat-text-days text-center">
+                        @item.CarModel.Brand.BrandName / @item.CarModel.ModelName <br />
+                        @item.IssueYar<br />
+                        <span style="font-size-adjust:0.58">@item.Price руб.</span>
+
+                    </div>
+                </a>
+</div>
+
+    }
+
+            </div>

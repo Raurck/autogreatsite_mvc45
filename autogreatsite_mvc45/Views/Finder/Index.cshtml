@@ -6,7 +6,10 @@
 
 <form action="@Url.Action("")" method="post" data-autogreat-finder="true" data-autogreat-finder-replace="#searchResultSection">
 
-    <h2>Поиск</h2>
+    <div class="row text-center div-section-title avtogreat-text-days">
+        Поиск в каталоге
+    </div>
+    <p></p>
     @Html.DropDownList("f_brandId", ViewBag.Brands as SelectList, new Dictionary<string, Object> { { "class","form-control" },
                                                                        { "data-autogreat-ddl-finder-ajax", "true" },
                                                                        { "data-autogreat-ddl-finder-action", "Finder/RenewModels/" },

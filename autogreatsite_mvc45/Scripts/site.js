@@ -1,6 +1,23 @@
 ﻿$(document).ready(function () {
+    var path = location.pathname;
+    if (path != "/Cars/Create" && path != "/Cars/Edit") { return; }
+    Dropzone.autoDiscover = false;
+    $("#dropzone_ph").dropzone({
+        url: "FileUpload",
+        addRemoveLinks: true,
+        success: function (file, response) {
+            var imgName = response;
+            file.previewElement.classList.add("dz-success");
+            console.log("Successfully uploaded :" + imgName);
+        },
+        error: function (file, response) {
+            file.previewElement.classList.add("dz-error");
+        }
+    });
+});
+$(document).ready(function () {
     var arrayOfStrings = location.pathname.split("/");
-    var path = String.concat("/",arrayOfStrings[1]);
+    var path = "".concat("/",arrayOfStrings[1]);
     if (path != "/Cars") {
         for (var i = 2; i < arrayOfStrings.length; i++) {
             path = path.concat("/", arrayOfStrings[i]);
@@ -16,6 +33,58 @@ $(document).ready(function () {
         $('.noadsbuffer').remove();
     }
 });
+
+$(document).ready(function () {
+    var $target = $("#NewestCars");
+    if ($target.length == 0) {
+        return true;
+    }
+    var option = {
+        url: 'Cars/NewestCars',
+        method: 'post'
+    };
+    $.ajax(option).done(function (data) {
+        $target.replaceWith(data);
+
+            $('.slick-newestCars').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                responsive: [
+    {
+        breakpoint: 1024,
+        settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+        }
+    },
+    {
+        breakpoint: 700,
+        settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+        }
+    },
+    {
+        breakpoint: 450,
+        settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+        }
+    }]
+            });
+
+
+    });
+    return false;
+
+});
+
 
 $(function () {
     var renewFinderContent = function () {
@@ -107,12 +176,3 @@ $(function () {
 });
 
 
-$(document).ready(function (e) {
-    $(".partialContent").each(function (index, item) {
-        var url = $(item).data("url");
-        if (url && url.length > 0) {
-            $(item).load(url);
-        }
-    })
-
-});

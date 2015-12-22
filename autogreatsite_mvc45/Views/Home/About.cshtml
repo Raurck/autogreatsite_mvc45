@@ -1,30 +1,30 @@
 ﻿@{
     ViewData["Title"] = "О нашей компании";
 }
-<h2>@ViewData["Title"]</h2>
+<h2 class="avtogreat-text-days-red">@ViewData["Title"]</h2>
 
 
 <p>Компания AUTOGREAT готова предложить Вам широкий ассортимент услуг по продаже и выкупу автомобилей.</p>
 <p>В него входят: </p>
     <ul>
         <li>
-            продажа авто с пробегом<a asp-controller="Home" asp-action="Sell" class="">
-                <img alt="..." src="~/images/arrow_blue_15.png" class="" />
+            продажа авто с пробегом<a href="@Url.Action("Index","Cars")">
+                <img alt=" ..." src="~/images/arrow_blue_15.png" class="" />
             </a>
         </li>
-        <li>выкуп авто с пробегом<a asp-controller="Home" asp-action="Buy" class="">
+        <li>выкуп авто с пробегом <a href="@Url.Action("Buy","Home")">
     <img alt="..." src="~/images/arrow_blue_15.png" class="" />
 </a></li>
-        <li><strong>срочный</strong> выкуп кредитных автомобилей<a asp-controller="Home" asp-action="Buy" class="">
+        <li><strong>срочный</strong> выкуп кредитных автомобилей<a href="@Url.Action("Buy","Home")">
+    <img alt=" ..." src="~/images/arrow_blue_15.png" class="" />
+</a></li>
+        <li>прием автомобиля на комиссионную продажу<a href="@Url.Action("Buy","Home")">
     <img alt="..." src="~/images/arrow_blue_15.png" class="" />
 </a></li>
-        <li>прием автомобиля на комиссионную продажу<a asp-controller="Home" asp-action="Buy" class="">
+        <li><abbr title="возможность поменять свой старый автомобиль на новый из автосалона, оплатив лишь разницу в цене" >Trade-In*</abbr><a href="@Url.Action("TradeIn","Home")">
     <img alt="..." src="~/images/arrow_blue_15.png" class="" />
 </a></li>
-        <li><abbr title="возможность поменять свой старый автомобиль на новый из автосалона, оплатив лишь разницу в цене" >Trade-In*</abbr><a asp-controller="Home" asp-action="TradeIn" class="">
-    <img alt="..." src="~/images/arrow_blue_15.png" class="" />
-</a></li>
-        <li>автокредитование<a asp-controller="Home" asp-action="Credit" class="">
+        <li>автокредитование<a href="@Url.Action("Credit","Home")">
     <img alt="..." src="~/images/arrow_blue_15.png" class="" />
 </a></li>
     </ul>

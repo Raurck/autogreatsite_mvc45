@@ -12,6 +12,7 @@ namespace autogreatsite_mvc45
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/jquery-ui-{version}.js",
                         "~/Scripts/site.js",
+                        "~/Scripts/Slick/slick.js",
                         "~/Scripts/fotorama.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
@@ -29,10 +30,20 @@ namespace autogreatsite_mvc45
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/dropzonejs").Include(
+                      "~/Scripts/dropzone/dropzone.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/dropzonecss").Include(
+                      "~/Scripts/dropzone/base.css",
+                      "~/Scripts/dropzone/dropzone.css"));
+
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/themes/base/*.css",
                       "~/Content/site.css",
+                      "~/Scripts/slick/slick.css",
+                      "~/Scripts/slick/slick-theme.css",
                       "~/Content/fotorama.css")
                       );
 

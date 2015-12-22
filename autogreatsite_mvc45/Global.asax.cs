@@ -17,8 +17,8 @@ namespace autogreatsite_mvc45
 
             
 
-            ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new RoleBasedRazorViewEngine(new[] { "Administrator", "Operator", "User" }));
+            //ViewEngines.Engines.Clear();
+            //ViewEngines.Engines.Add(new RoleBasedRazorViewEngine(new[] { "Administrator", "Operator", "User" }));
 
             Application["CarPhotos"] = "~/Content/Photo";
         }

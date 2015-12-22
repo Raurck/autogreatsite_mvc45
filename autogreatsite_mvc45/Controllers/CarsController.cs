@@ -11,6 +11,8 @@ using autogreatsite_mvc45.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Threading;
+using System.Drawing;
+using System.IO;
 
 namespace autogreatsite_mvc45.Controllers
 {
@@ -66,6 +68,15 @@ namespace autogreatsite_mvc45.Controllers
             return View(await cars.ToListAsync());
         }
 
+        [Route("NewestCars")]
+        public async Task<ActionResult> NewestCars()
+        {
+            //var cars = db.Cars.Include(c => c.CarBody).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Include(c => c.CarModel).Include(c => c.CarModel.Brand).OrderBy(c => c.CatalogDate).Take(3);
+            var cars = db.Cars.Include(c => c.CarBody).Include(c => c.CarDrive).Include(c => c.CarEngine).Include(c => c.CarRudder).Include(c => c.CarTransmission).Include(c => c.CarModel).Include(c => c.CarModel.Brand).OrderByDescending(c=>c.CatalogDate).Take(10);
+            return PartialView("_NewestCars", await cars.ToListAsync());
+        }
+
+
         // GET: Cars/Details/5
         [Route("Details/{id:int}")]
         public async Task<ActionResult> Details(int? id)
@@ -86,8 +97,35 @@ namespace autogreatsite_mvc45.Controllers
             return View(car);
         }
 
+
+        // GET: Cars/FileUpload
+        [HttpPost]
+        [Route("FileUpload")]
+        public void FileUpload()
+        {
+            HttpContext.Response.ContentType = "text/plain";
+
+            string str_image = "";
+
+            foreach (string s in HttpContext.Request.Files)
+            {
+                HttpPostedFileBase file = HttpContext.Request.Files[s];
+                //  int fileSizeInBytes = file.ContentLength;
+                string fileName = file.FileName;
+                string fileExtension = file.ContentType;
+
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    str_image = Guid.NewGuid().ToString() + Path.GetExtension(fileName); 
+                    string pathToSave_100 = Path.Combine(Server.MapPath("~/Content/Photo") , str_image);
+                    file.SaveAs(pathToSave_100);
+                }
+            }
+            HttpContext.Response.Write(str_image);
+        }
+
         // GET: Cars/Create
-        //[Authorize(Roles ="Administrator")]
+        [Authorize(Roles ="Administrator")]
         [Route("Create")]
         public ActionResult Create()
         {
@@ -102,30 +140,77 @@ namespace autogreatsite_mvc45.Controllers
             return View();
         }
 
+        public bool ThumbnailCallback()
+        {
+            return true;
+        }
+
+        private string Scale(string imageFileName, int trgHeigth)
+        {
+            Image.GetThumbnailImageAbort callback =
+                              new Image.GetThumbnailImageAbort(ThumbnailCallback);
+
+            if (System.IO.File.Exists(imageFileName))
+            {
+
+                int trgWidth = 4 * trgHeigth / 3;
+
+                Image img1 = new Bitmap(imageFileName);
+
+                string fileName = Path.Combine(Path.GetDirectoryName(imageFileName),"tmb", Path.GetFileNameWithoutExtension(imageFileName) + Path.GetExtension(imageFileName));
+
+                int h = 3 * img1.Width / 4;
+                int w = 4 * img1.Height / 3;
+
+                Rectangle cropRect = new Rectangle(0, 0, img1.Width, img1.Height);
+                if ((img1.Height - h) / (float)img1.Height > 0.03)
+                {
+                    cropRect = new Rectangle(0, (img1.Height - h) / 2, img1.Width, h);
+                }
+                else if (((img1.Height - h) / (float)img1.Height) < -0.03)
+                {
+                    cropRect = new Rectangle((img1.Width - w) / 2, 0, w, img1.Height);
+                }
+
+                img1 = (img1 as Bitmap).Clone(cropRect, img1.PixelFormat);
+
+                using (Image img2 = img1.GetThumbnailImage(trgWidth, trgHeigth, callback, new IntPtr()))
+                {
+                    using (FileStream fs = System.IO.File.OpenWrite(fileName))
+                    {
+                        img2.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    }
+                }
+
+                return fileName;
+            }
+            return null;
+        }
         // POST: Cars/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         [Route("Create")]
         public async Task<ActionResult> Create([Bind(Include = "CarPhoto,CarId,Model,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car,
-            List<HttpPostedFileBase> filesToUpload, string ModelName)
+            List<HttpPostedFileBase> filesToUpload, string ModelName, int BrandId)
         {
             int modelId = -1;
-            if (db.CarModels.Where(c => c.ModelName == ModelName).Count() > 0)
+            if (db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId == BrandId).Count() > 0)
             {
-                modelId = db.CarModels.Where(c => c.ModelName == ModelName).FirstOrDefault().ModelId;
+                modelId = db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId == BrandId).FirstOrDefault().ModelId;
             }
             else
             {
-                db.CarModels.Add(new Model { ModelName = ModelName });
+                db.CarModels.Add(new Model { ModelName = ModelName, BrandId = BrandId });
                 db.SaveChanges();
-                modelId = db.CarModels.Where(c => c.ModelName == ModelName).FirstOrDefault().ModelId;
+                modelId = db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId == BrandId).FirstOrDefault().ModelId;
             }
             car.ModelId = modelId;
             if (ModelState.IsValid)
             {
-
+                car.CatalogDate = DateTime.Now;
                 db.Cars.Add(car);
 
                 if (filesToUpload != null)
@@ -138,6 +223,7 @@ namespace autogreatsite_mvc45.Controllers
                             var baseName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(fl.FileName); ;
                             car.CarPhoto.Add(new Photo { FileName = baseName });
                             fl.SaveAs(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)));
+                            Scale(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)), 150);
                         }
                     }
 
@@ -148,7 +234,7 @@ namespace autogreatsite_mvc45.Controllers
             }
 
             ViewBag.BodyId = new SelectList(db.Bodys, "BodyID", "Name", car.BodyId);
-            ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "BrandName", car.CarModel.BrandId);
+            ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "BrandName", BrandId);
             ViewBag.DriveId = new SelectList(db.Drives, "DriveID", "Name", car.DriveId);
             ViewBag.EngineId = new SelectList(db.Engines, "EngineId", "EngineId", car.EngineId);
             ViewBag.RudderId = new SelectList(db.Rudders, "RudderID", "Name", car.RudderId);
@@ -159,6 +245,7 @@ namespace autogreatsite_mvc45.Controllers
 
         // GET: Cars/Edit/5
         [Route("Edit/{id:int}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -170,6 +257,8 @@ namespace autogreatsite_mvc45.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Id = id;
+             ViewBag.ModelName = car.CarModel.ModelName;
             ViewBag.BodyId = new SelectList(db.Bodys, "BodyID", "Name", car.BodyId);
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "BrandName", car.CarModel.BrandId);
             ViewBag.DriveId = new SelectList(db.Drives, "DriveID", "Name", car.DriveId);
@@ -184,15 +273,32 @@ namespace autogreatsite_mvc45.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         [Route("Edit/{id:int}")]
-        public async Task<ActionResult> Edit([Bind(Include = "CarId,Model,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car)
+        public async Task<ActionResult> Edit([Bind(Include = "CarPhoto,CarId,Model,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car,
+            List<HttpPostedFileBase> filesToUpload, string ModelName, int BrandId, int? id)
         {
+            int modelId = -1;
+            if (db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId == BrandId ).Count() > 0)
+            {
+                modelId = db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId==BrandId).FirstOrDefault().ModelId;
+            }
+            else
+            {
+                db.CarModels.Add(new Model { ModelName = ModelName, BrandId = BrandId });
+                db.SaveChanges();
+                modelId = db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId == BrandId).FirstOrDefault().ModelId;
+            }
+            car.ModelId = modelId;
+            car.CarId = (int)id;
             if (ModelState.IsValid)
             {
                 db.Entry(car).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
+            ViewBag.Id = id;
+            ViewBag.ModelName = car.CarModel.ModelName;
             ViewBag.BodyId = new SelectList(db.Bodys, "BodyID", "Name", car.BodyId);
             ViewBag.BrandId = new SelectList(db.Brands, "BrandId", "BrandName", car.CarModel.BrandId);
             ViewBag.DriveId = new SelectList(db.Drives, "DriveID", "Name", car.DriveId);
@@ -204,6 +310,7 @@ namespace autogreatsite_mvc45.Controllers
 
         // GET: Cars/Delete/5
         [Route("Delete/{id:int}")]
+        [Authorize(Roles = "Administrator")]
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
@@ -220,6 +327,7 @@ namespace autogreatsite_mvc45.Controllers
 
         // POST: Cars/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Administrator")]
         [ValidateAntiForgeryToken]
         [Route("Delete/{id:int}")]
         public async Task<ActionResult> DeleteConfirmed(int id)

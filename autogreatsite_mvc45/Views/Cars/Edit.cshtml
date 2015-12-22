@@ -1,35 +1,33 @@
-﻿@model autogreatsite_mvc45.Models.Car
+﻿
+@model autogreatsite_mvc45.Models.Car
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Изменение";
 }
 
-<h2>Edit</h2>
+<h2>Ввод данных</h2>
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Cars",new { id=ViewBag.Id } , FormMethod.Post, new { enctype = "multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Car</h4>
+        <h4>Автомобиль</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.CarId)
-
         <div class="form-group">
-            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CarModel.ModelName, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+                @Html.Editor("ModelName", new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CarModel.ModelName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BrandId, "BrandId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.CarModel.BrandId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BrandId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.BrandId, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.CarModel.BrandId, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -58,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.BodyId, "BodyId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.BodyId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("BodyId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.BodyId, "", new { @class = "text-danger" })
@@ -66,7 +64,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.TransmissionId, "TransmissionId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.TransmissionId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("TransmissionId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TransmissionId, "", new { @class = "text-danger" })
@@ -74,7 +72,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.RudderId, "RudderId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.RudderId,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("RudderId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RudderId, "", new { @class = "text-danger" })
@@ -90,7 +88,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DriveId, "DriveId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DriveId,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("DriveId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.DriveId, "", new { @class = "text-danger" })
@@ -98,7 +96,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EngineId, "EngineId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.EngineId,  htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("EngineId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.EngineId, "", new { @class = "text-danger" })
@@ -120,19 +118,22 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        <div>
+            <label class = "control-label col-md-2">Фотографии</label>
+            <input type="file" name="filesToUpload" multiple="multiple" accept="image/*" /><br>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+
+<div class="text-center">
+    @Html.ActionLink("К списку автомобилей", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
