@@ -93,7 +93,13 @@ a.seller-phone:visited{
     font-size:18px;
     font-family:Tahoma;
 }
+.avtogreat-content-container {
+    background-color:white;
+    border-style:solid;
+    border-width:1px;
+    border-color:silver;
 
+}
 .avtogreat-text-days-red {
     font-family:days-regular;
     color: #e31E25;
