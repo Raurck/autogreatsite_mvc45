@@ -68,6 +68,7 @@
             <div class="row text-center div-section-title avtogreat-text-days ">
                 Последние поступления
             </div>
+           @Html.Partial("_LoadPlug")
         </div>
     </div>
 </div>
@@ -87,13 +88,21 @@
         <div class="row text-center div-section-title avtogreat-text-days ">
             Акции
         </div>
-        <ul>
-            <li><a asp-controller="Home" asp-action="Buy">Купим!</a></li>
-            <li><a asp-controller="Home" asp-action="Buy">Быстро!</a></li>
-            <li><a asp-controller="Home" asp-action="Buy">Реализуем!</a></li>
-            <li><a asp-controller="Home" asp-action="Buy">Заплатим!</a></li>
-        </ul>
-    </div>
+        <h3 class="avtogreat-text-ft40">
+            Компания Автогрит поздравляет всех посетителей сайта с наступающим <b>2016</b> годом!
+        </h3>
+            <!--
+                <iframe width="250" height="190"
+                        src="http://www.youtube.com/embed/E5ln4uR4TwQ?autoplay=0&autohide=1"></iframe>
+
+                <ul>
+                    <li><a asp-controller="Home" asp-action="Buy">Купим!</a></li>
+                    <li><a asp-controller="Home" asp-action="Buy">Быстро!</a></li>
+                    <li><a asp-controller="Home" asp-action="Buy">Реализуем!</a></li>
+                    <li><a asp-controller="Home" asp-action="Buy">Заплатим!</a></li>
+                </ul>
+        -->
+</div>
 </div>
 
 @section scripts{

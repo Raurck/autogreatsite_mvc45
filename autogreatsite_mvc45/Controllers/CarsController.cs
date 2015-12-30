@@ -179,7 +179,8 @@ namespace autogreatsite_mvc45.Controllers
                 {
                     using (FileStream fs = System.IO.File.OpenWrite(fileName))
                     {
-                        img2.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
+                            img2.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
+
                     }
                 }
 

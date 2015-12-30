@@ -3,9 +3,13 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Компания "AUTOGREAT"-@ViewData["Title"]</title>
-  
-        <meta name="description" content="The description of my page" />
+        <meta name="description" content="Автогрит (Autogreat, Avtogreat) выкуп и продажа автомобилей с пробегом в Екатеринбурге. Возможен трейдин или кредит." />
+        <link rel="icon"
+              type="image/png"
+              href="~/Content/Images/favicon.png">
+
+        <title>Автогрит - автомобили с пробегом в Екатеринбурге | @ViewData["Title"] | avtogreat.com</title>
+        <link href="~/Content/Load.css" rel="stylesheet" />
 </head>
 <body>
     <div class="row" style="background-color:white;">
@@ -55,7 +59,7 @@
                     }
                 </ul>
 
-                @Html.Partial("_LoginPartial")
+                <!--@Html.Partial("_LoginPartial")-->
 
             </div>
         </div>
@@ -67,7 +71,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2015 - Компания AVTOGREAT</p>
+            <p>&copy; 2015 - Компания Автогрит</p>
         </footer>
     </div>
 
