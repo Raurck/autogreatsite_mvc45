@@ -47,7 +47,15 @@ namespace autogreatsite_mvc45
                       "~/Content/fotorama.css")
                       );
 
-           // BundleTable.EnableOptimizations = true;
+            bundles.Add(new ScriptBundle("~/bundles/echo").Include(
+                "~/Scripts/echo.js"
+                ));
+
+            bundles.Add(new StyleBundle("~/Content/loadplug").Include(
+                "~/Content/Load.css"
+                ));
+
+            // BundleTable.EnableOptimizations = true;
         }
     }
 }

@@ -110,6 +110,11 @@ a.seller-phone:visited{
     margin-bottom:10px;
 }
 
+.avtogreat-wait-div {
+background:white url("Images/wait.GIF") no-repeat center center;
+min-height:150px;
+}
+
 .avtogreat-text-ft40 {
     font-family:ft40-roman;
     margin-bottom:10px;

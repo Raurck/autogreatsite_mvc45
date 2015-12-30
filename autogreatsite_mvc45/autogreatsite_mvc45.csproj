@@ -325,6 +325,10 @@
     <Content Include="Content\fotorama%402x.png" />
     <Content Include="Content\fotorama.css" />
     <Content Include="Content\fotorama.png" />
+    <Content Include="Content\Images\nophoto.png" />
+    <Content Include="Content\Images\wait.GIF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Images\arrow_blue_15.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -743,6 +747,7 @@
     <Content Include="Scripts\dropzone\dropzone.min.css" />
     <Content Include="Scripts\dropzone\dropzone.min.js" />
     <Content Include="Scripts\fotorama.js" />
+    <Content Include="Scripts\echo.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.4.js" />

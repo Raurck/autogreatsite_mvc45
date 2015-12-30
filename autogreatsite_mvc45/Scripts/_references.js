@@ -2,6 +2,7 @@
 /// <reference path="bootstrap.js" />
 /// <reference path="dropzone/dropzone.min.js" />
 /// <reference path="dropzone/dropzone-amd-module.min.js" />
+/// <reference path="echo.js" />
 /// <reference path="fotorama.js" />
 /// <reference path="jquery.fileupload/canvas-to-blob/canvas-to-blob.js" />
 /// <reference path="jquery.fileupload/cors/jquery.postmessage-transport.js" />
