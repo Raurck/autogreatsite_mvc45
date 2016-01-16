@@ -40,7 +40,7 @@
                  data-arrows="true"
                  data-click="true"
                  data-swipe="true">
-                @foreach (var p in Model.CarPhoto)
+                @foreach (var p in Model.CarPhoto.OrderByDescending(m=>m.IsMain))
                 {
 
                     <img src="@Url.Content(Path.Combine("~/Content/Photo",p.FileName))" alt="@p.FileName" / >

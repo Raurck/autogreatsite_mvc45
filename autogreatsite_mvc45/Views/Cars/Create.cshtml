@@ -5,39 +5,40 @@
     ViewBag.Title = "Новая машина";
 }
 
-<h2>Ввод данных</h2>
+<h2>Новый автомобиль: </h2>
 
-@using (Html.BeginForm("Create", "Cars", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("Create", "Cars", null, FormMethod.Post, new { enctype = "multipart/form-data", @name= "fileupload", @id = "fileupload" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Автомобиль</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CarModel.ModelName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.Editor("ModelName", new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarModel.ModelName, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-4">
+                <div class="input-group col-md-12">
+                    <span class="input-group-addon control-label" id="basic-addon1"><b>@Html.DisplayNameFor(model => model.CarModel.ModelName)</b></span>
+                    @Html.Editor("ModelName", new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.CarModel.ModelName), autofocus="" } })
+                    @Html.ValidationMessageFor(model => model.CarModel.ModelName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group col-md-12">
+                  <span class="input-group-addon control-label" id="basic-addon1"><b>@Html.DisplayNameFor(model => model.CarModel.BrandId)</b></span>
+                        @Html.DropDownList("BrandId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CarModel.BrandId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon control-label" id="basic-addon1"><b>@Html.DisplayNameFor(model => model.DistanceTraveled)</b></span>
+                        @Html.EditorFor(model => model.DistanceTraveled, new { htmlAttributes = new { @class = "form-control", placeholder = @Html.DisplayNameFor(model => model.DistanceTraveled) } })
+                        @Html.ValidationMessageFor(model => model.DistanceTraveled, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.CarModel.BrandId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("BrandId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CarModel.BrandId, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.DistanceTraveled, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DistanceTraveled, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DistanceTraveled, "", new { @class = "text-danger" })
-            </div>
-        </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -50,9 +51,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.IssueYar, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                
-                @Html.EditorFor(model => model.IssueYar, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IssueYar, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.IssueYar, new { htmlAttributes = new { @class = "form-control", Value = (DateTime.Now.Year - 3) } })
+                @Html.ValidationMessageFor(model => model.IssueYar, "", new { @class = "text-danger"})
             </div>
         </div>
 
@@ -120,21 +120,241 @@
             </div>
         </div>
 
-        <div>
-            <label class="control-label col-md-2">Фотографии</label>
-            <div id="dropzone_ph" class="dropzone">
-            </div>
+        <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody></table>
+
+        <!-- The table listing the files available for upload/download -->
+        <div id="DropZone" class="avtogreat-dropzone">
+            <p>Перетащите сюда изображения для загрузки...</p>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Сохранить" class="btn btn-default" />
+        <div class="row fileupload-buttonbar">
+            <div class="span7">
+                <!-- The fileinput-button span is used to style the file input field as button -->
+                <span class="btn btn-success fileinput-button">
+                    <i class="glyphicon glyphicon-plus icon-white"></i>
+                    <span>Добавить...</span>
+                    <input type="file" name="files[]" multiple>
+                </span>
+                <button type="submit" class="btn btn-primary start">
+                    <i class="glyphicon glyphicon-upload icon-white"></i>
+                    <span>Загрузить все</span>
+                </button>
+                <button type="reset" class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle icon-white"></i>
+                    <span>Отменить загрузку</span>
+                </button>
+                <button type="button" class="btn btn-danger delete">
+                    <i class="glyphicon glyphicon-trash icon-white"></i>
+                    <span>Удалить выбранные</span>
+                </button>
+                <input type="checkbox" class="toggle">Выбрать все
+            </div>
+            <div class="span5">
+                <!-- The global progress bar -->
+                <div class="progress progress-success progress-striped active fade">
+                    <div class="bar" style="width:0;"></div>
+                </div>
             </div>
         </div>
+        <!-- The loading indicator is shown during image processing -->
+        <div class="fileupload-loading"></div>
+        <br>
+
     </div>
+
 }
 
 <div class="text-center">
     @Html.ActionLink("К списку автомобилей", "Index")
 </div>
 
+
+<div class="row" style="margin-top:15px">
+
+
+    <!-- modal-gallery is the modal dialog used for the image gallery -->
+    <div id="modal-gallery" class="modal modal-gallery hide fade">
+        <div class="modal-header">
+            <a class="close" data-dismiss="modal">&times;</a>
+            <h3 class="modal-title"></h3>
+        </div>
+        <div class="modal-body"><div class="modal-image"></div></div>
+        <div class="modal-footer">
+            <a class="btn btn-primary modal-next">
+                <span>Next</span>
+                <i class="glyphicon glyphicon-arrow-right icon-white"></i>
+            </a>
+            <a class="btn btn-info modal-prev">
+                <i class="glyphicon glyphicon-arrow-left icon-white"></i>
+                <span>Previous</span>
+            </a>
+            <a class="btn btn-success modal-play modal-slideshow" data-slideshow="5000">
+                <i class="glyphicon glyphicon-play icon-white"></i>
+                <span>Slideshow</span>
+            </a>
+            <a class="btn modal-download" target="_blank">
+                <i class="glyphicon glyphicon-download"></i>
+                <span>Download</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    @Scripts.Render("~/bundles/fileupload")
+    @Styles.Render("~/Content/fileupload")
+    <!-- The template to display files available for upload -->
+    <script id="template-upload" type="text/x-tmpl">
+        {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-upload">
+            <td>
+                <input type="radio"  class="ag-mainfoto" name="mainfoto" value="{%=file.name%}" />
+            </td>
+            <td>
+                <span class="preview"></span>
+            </td>
+            <td>
+                <p class="name">{%=file.name%}</p>
+                <strong class="error text-danger"></strong>
+            </td>
+            <td>
+                <p class="size">Обработка...</p>
+                <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0;"></div></div>
+            </td>
+
+<td>
+                {% if (!i && !o.options.autoUpload) { %}
+                <button class="btn btn-primary start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Загрузить</span>
+                </button>
+                {% } %}
+                {% if (!i) { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Отмена</span>
+                </button>
+                {% } %}
+            </td>
+        </tr>
+        {% } %}
+    </script>
+    <!-- The template to display files available for download -->
+    <script id="template-download" type="text/x-tmpl">
+        {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-download">
+            <td>
+                <input type="radio" name="mainfoto"  class="ag-mainfoto" value="{%=file.name%}"/>
+            </td>
+            <td>
+                <span class="preview">
+                    {% if (file.thumbnailUrl) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
+                    {% } %}
+                </span>
+            </td>
+            <td>
+                <p class="name">
+                    {% if (file.url) { %}
+                    <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
+                    {% } else { %}
+                    <span>{%=file.name%}</span>
+                    {% } %}
+                </p>
+                {% if (file.error) { %}
+                <div><span class="label label-danger">Ошибка</span> {%=file.error%}</div>
+                {% } %}
+                {% if (file.url) { %}
+                <input type="hidden" name="name" id="name" value="{%=file.name%}" />
+                {% } %}
+
+            </td>
+            <td>
+                <span class="size">{%=o.formatFileSize(file.size)%}</span>
+            </td>
+
+
+            <td>
+                {% if (file.deleteUrl) { %}
+                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}" {% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}' {% } %}>
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span>Удалить</span>
+                </button>
+                <input type="checkbox" name="delete" value="1" class="toggle">
+                {% } else { %}
+                <button class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Отмена</span>
+                </button>
+                {% } %}
+            </td>
+        </tr>
+        {% } %}
+
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            'use strict';
+            // Initialize the jQuery File Upload widget:
+            $('#fileupload').fileupload({
+                url: '../upload'
+            });
+
+            $('#fileupload').fileupload('option', {
+                dropZone: $('#DropZone'),
+                url: '../upload',
+                maxFileSize: 50000000,
+                resizeMaxWidth: 1920,
+                resizeMaxHeight: 1200,
+                disableImageResize: /Android(?!.*Chrome)|Opera/
+                    .test(window.navigator.userAgent),
+                acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
+            });
+
+            $('#fileupload').fileupload(
+                'option',
+                'redirect',
+                window.location.href.replace(
+                    /\/[^\/]*$/,
+                    '/cors/result.html?%s'
+                )
+            );
+
+            // Upload server status check for browsers with CORS support:
+            $('#fileupload').addClass('fileupload-processing');
+            $.ajax({
+                // Uncomment the following to send cross-domain cookies:
+                //xhrFields: {withCredentials: true},
+                url: $('#fileupload').fileupload('option', 'url'),
+                dataType: 'json',
+                context: $('#fileupload')[0]
+            }).always(function () {
+                $(this).removeClass('fileupload-processing');
+            }).done(function (result) {
+                $(this).fileupload('option', 'done')
+                    .call(this, $.Event('done'), { result: result });
+            });
+
+            $('#fileupload').bind('fileuploadstop', function (e) {
+                $('#fileupload').submit();
+                //alert('all done');
+            });
+                
+            $('#fileupload').bind('fileuploadsend', function (e) {
+                //var ischecked = node.find('.ag-mainfoto', 'input:checked').length;
+                //alert(e);
+            } );
+
+            $('#fileupload').bind('fileuploadstart', function (e) {
+                document.cookie = "primaryphoto=".concat($(e.currentTarget).find('input:checked').val());
+                //var ischecked = node.find('.ag-mainfoto', 'input:checked').length;
+                //alert(e);
+            });
+
+        });
+    </script>
+
+}

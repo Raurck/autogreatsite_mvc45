@@ -12,6 +12,7 @@ namespace autogreatsite_mvc45
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("upload/{*pathInfo}");
             routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",

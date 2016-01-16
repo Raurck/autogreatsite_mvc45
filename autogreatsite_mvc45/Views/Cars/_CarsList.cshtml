@@ -28,16 +28,20 @@
             <div class="col-md-5"><h4>Цена&nbsp;@Html.DisplayFor(modelItem => item.Price) рублей</h4></div>
         </div>
         <div class="row">
-            <div class="col-md-5">
-                <div class="avtogreat-wait-div">
+            <div class="col-md-4">
+                <div class="avtogreat-wait-div" span="max-width:160px">
                     <a href="@Url.Action("Details","Cars", new { id = item.CarId })">
-                        @if ((item.CarPhoto.Count > 0) &&(File.Exists(Server.MapPath(Path.Combine("~/Content/Photo/tmb", item.CarPhoto.First().FileName)))))
+                        @if ((item.CarPhoto.Where(m => m.IsMain==true).ToList().Count > 0) && (File.Exists(Server.MapPath(Path.Combine("~/Content/Photo/tmb", item.CarPhoto.Where(m => m.IsMain).First().FileName)))))
                         {
-                        <img src="#" alt="" data-echo="@Url.Content(@Path.Combine("~/Content/Photo/tmb", item.CarPhoto.First().FileName))" />
+                            <img src="#" alt="" data-echo="@Url.Content(@Path.Combine("~/Content/Photo/tmb", item.CarPhoto.Where(m => m.IsMain).First().FileName))" />
+                        }
+                        else if ((item.CarPhoto.Count > 0) && (File.Exists(Server.MapPath(Path.Combine("~/Content/Photo/tmb", item.CarPhoto.First().FileName)))))
+                        {
+                            <img src="#" alt="" data-echo="@Url.Content(@Path.Combine("~/Content/Photo/tmb", item.CarPhoto.First().FileName))" />
                         }
                         else
                         {
-                        <img src="#" alt="" data-echo="@Url.Content("~/Content/Images/nophoto.png")" />
+                            <img src="#" alt="" data-echo="@Url.Content("~/Content/Images/nophoto.png")" />
                         }
                     </a>
                 </div>

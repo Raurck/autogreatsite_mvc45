@@ -20,7 +20,7 @@ namespace autogreatsite_mvc45.Controllers
     public class CarsController : Controller
     {
         private CarContext db = new CarContext();
-        
+        private string UploadDir= "~/Content/Photo"; //must be in application settingns... but...
         // GET: Cars
         [Route("{brand}")]
         public async Task<ActionResult> Index(string brand)
@@ -97,7 +97,7 @@ namespace autogreatsite_mvc45.Controllers
             return View(car);
         }
 
-
+        /*
         // POST: Cars/FileUpload
         [Authorize(Roles = "Administrator")]
         [HttpPost]
@@ -124,7 +124,7 @@ namespace autogreatsite_mvc45.Controllers
             }
             HttpContext.Response.Write(str_image);
         }
-
+        */
         // GET: Cars/Create
         [Authorize(Roles ="Administrator")]
         [Route("Create")]
@@ -141,53 +141,7 @@ namespace autogreatsite_mvc45.Controllers
             return View();
         }
 
-        public bool ThumbnailCallback()
-        {
-            return true;
-        }
 
-        private string Scale(string imageFileName, int trgHeigth)
-        {
-            Image.GetThumbnailImageAbort callback =
-                              new Image.GetThumbnailImageAbort(ThumbnailCallback);
-
-            if (System.IO.File.Exists(imageFileName))
-            {
-
-                int trgWidth = 4 * trgHeigth / 3;
-
-                Image img1 = new Bitmap(imageFileName);
-
-                string fileName = Path.Combine(Path.GetDirectoryName(imageFileName),"tmb", Path.GetFileNameWithoutExtension(imageFileName) + Path.GetExtension(imageFileName));
-
-                int h = 3 * img1.Width / 4;
-                int w = 4 * img1.Height / 3;
-
-                Rectangle cropRect = new Rectangle(0, 0, img1.Width, img1.Height);
-                if ((img1.Height - h) / (float)img1.Height > 0.03)
-                {
-                    cropRect = new Rectangle(0, (img1.Height - h) / 2, img1.Width, h);
-                }
-                else if (((img1.Height - h) / (float)img1.Height) < -0.03)
-                {
-                    cropRect = new Rectangle((img1.Width - w) / 2, 0, w, img1.Height);
-                }
-
-                img1 = (img1 as Bitmap).Clone(cropRect, img1.PixelFormat);
-
-                using (Image img2 = img1.GetThumbnailImage(trgWidth, trgHeigth, callback, new IntPtr()))
-                {
-                    using (FileStream fs = System.IO.File.OpenWrite(fileName))
-                    {
-                            img2.Save(fs, System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                    }
-                }
-
-                return fileName;
-            }
-            return null;
-        }
         // POST: Cars/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -196,7 +150,7 @@ namespace autogreatsite_mvc45.Controllers
         [Authorize(Roles = "Administrator")]
         [Route("Create")]
         public async Task<ActionResult> Create([Bind(Include = "CarPhoto,CarId,Model,DistanceTraveled,Price,IssueYar,BodyId,TransmissionId,RudderId,OwnerCount,DriveId,EngineId,CarColor,Description")] Car car,
-            List<HttpPostedFileBase> filesToUpload, string ModelName, int BrandId)
+            string ModelName, int BrandId, string[] name)
         {
             int modelId = -1;
             if (db.CarModels.Where(c => c.ModelName == ModelName && c.BrandId == BrandId).Count() > 0)
@@ -214,19 +168,32 @@ namespace autogreatsite_mvc45.Controllers
             {
                 car.CatalogDate = DateTime.Now;
                 db.Cars.Add(car);
-
-                if (filesToUpload != null)
+                HttpCookie primaryPhoto = Request.Cookies["primaryPhoto"];
+                string mainPhoto = "";
+                if ((primaryPhoto != null) && (primaryPhoto.Value != null))
                 {
-                    foreach (var fl in filesToUpload)
+                    mainPhoto = primaryPhoto.Value;
+                }
+
+                if (name != null)
+                {
+                    for(var i=0;i<name.Length;i++)
                     {
-                        if ((fl!=null) &&( fl.ContentType.StartsWith("image/") ))
+
+                            var oldName = (Server.MapPath(Path.Combine(UploadDir,"tmp", name[i])));
+                            var tmbName = (Server.MapPath(Path.Combine(UploadDir, "tmp", "tmb", name[i])));
+                            var baseName = Guid.NewGuid().ToString() + Path.GetExtension(name[i]);
+                        
+                        bool mf=false;
+                        if (mainPhoto != null)
                         {
-                            
-                            var baseName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(fl.FileName); ;
-                            car.CarPhoto.Add(new Photo { FileName = baseName });
-                            fl.SaveAs(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)));
-                            Scale(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)), 150);
+                            mf = (mainPhoto == name[i]);
                         }
+                        car.CarPhoto.Add(new Photo { FileName = baseName, IsMain= mf });
+                            System.IO.File.Move(oldName, Server.MapPath(Path.Combine(UploadDir, baseName)));
+                            System.IO.File.Move(tmbName, Server.MapPath(Path.Combine(UploadDir, "tmb", baseName)));
+                           // fl.SaveAs(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)));
+                           // Scale(Server.MapPath(System.IO.Path.Combine("~/Content/Photo", baseName)), 150);
                     }
 
                 }

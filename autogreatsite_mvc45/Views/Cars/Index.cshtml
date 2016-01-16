@@ -15,13 +15,12 @@
         </div>
 @if (User.IsInRole("Administrator"))
 {
-        <div class="row avtogreat-row">
-            <div class="col-lg-offset-5 col-md-offset-5 hidden-xs hidden-sm" />
-            <div class="col-lg-2 col-md-2">
+        <div class="row avtogreat-row text-center">
             <a class="btn btn-warning avtogreat-text-ft40" href="@Url.Action("Create", "Cars")" role="button">Новый автомобиль</a>
-            </div>
         </div>
 }
-        @Html.Partial("_CarsList", Model)
+
+            @Html.Partial("_CarsList", Model)
+
     </div>
 </div>

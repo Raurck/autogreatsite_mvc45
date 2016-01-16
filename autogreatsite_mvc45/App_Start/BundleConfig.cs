@@ -55,6 +55,29 @@ namespace autogreatsite_mvc45
                 "~/Content/Load.css"
                 ));
 
+
+            //fileupload script bundle in right order
+            bundles.Add(new ScriptBundle("~/bundles/fileupload").Include(
+                        "~/Scripts/jQuery.FileUpload/locale/locale.js",
+                        "~/Scripts/jQuery.FileUpload/template/tmpl.min.js",
+                        "~/Scripts/jQuery.FileUpload/load-image/load-image.all.min.js",
+                        "~/Scripts/jQuery.FileUpload/canvas-to-blob/canvas-to-blob.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.iframe-transport.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload-process.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload-image.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload-audio.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload-video.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload-validate.js",
+                        "~/Scripts/jQuery.FileUpload/jquery.fileupload-ui.js"
+                        ));
+
+            //fileupload css bundle in right order
+            bundles.Add(new StyleBundle("~/Content/fileupload").Include(
+                      "~/Content/jquery.fileupload/css/jquery.fileupload.css",
+                      "~/Content/jquery.fileupload/css/jquery.fileupload-ui.css"));
+
+
             // BundleTable.EnableOptimizations = true;
         }
     }

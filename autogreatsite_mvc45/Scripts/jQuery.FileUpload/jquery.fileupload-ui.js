@@ -179,8 +179,15 @@
                         that._transition($(this)).done(
                             function () {
                                 var node = $(this);
+                                //var ischecked = node.find('.ag-mainfoto', 'input:checked').length;
                                 template = that._renderDownload([file])
                                     .replaceAll(node);
+                                /*
+                                if (ischecked)
+                                {
+                                    $(template).find('.ag-mainfoto', 'input').attr("checked", true);
+                                }
+                                */
                                 that._forceReflow(template);
                                 that._transition(template).done(
                                     function () {
